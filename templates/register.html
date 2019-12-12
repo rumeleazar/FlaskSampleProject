@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+	
+	<section>
+
+		<header class = 'half-black'>
+			<div class="container">
+				<nav>
+					<ul>
+						{% if not session['username'] %}
+									<li><a href = {{ url_for("home")}}>Home</a></li>
+						{% else %}
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+											
+						{% endif %}	
+							<li><a href = "#">About</a></li>
+							<li><a href = "#">Contact us</a></li>
+						{% if not session['username'] %}
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
+						{% else %}
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+						{% endif %}	
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		
+			<div class = 'container'>
+				<div>
+					<h1>Register Now!</h1>
+				</div>
+				<hr>
+			
+				<div>
+					<form method = "POST" action = "register">
+						<div>
+						    <label>Username</label><br>
+						    <input type="text" class="container"  placeholder="Enter Username" name = "username">
+			  			</div>
+			  			<br>
+					  	<div>
+						    <label >Password</label><br>
+						    <input type="password" class="container" placeholder="Password" name ="password">
+					  	</div>
+					  	<br>
+					  	<div>
+						    <label>First Name</label><br>
+						    <input type="text" class="container"  placeholder="Enter first name" name = "firstname">
+			  			</div>
+			  			<br>
+			  			<div>
+						    <label>Last Name</label><br>
+						    <input type="text" class="container"  placeholder="Enter surname" name = "lastname">
+			  			</div>
+			  			<br>
+					  	<div>
+						    <label >Email</label><br>
+						    <input type="Email" class="container" placeholder="Enter email" name ="email">
+					  	</div>
+					  	<div>
+					  		<p> Already have an account?<a href = 'login' id = 'button' >Sign In</a></p>
+					  	<br><br>
+					  	</div>
+					  	<div>
+					  		<button type="submit">Register</button>
+					  	</div>
+					</form>
+				</div>
+			</div>	
+	</section>
+
+
+
+
+{% endblock %}

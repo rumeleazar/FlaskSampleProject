@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>hamburger</title>
+	<!-- 	<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename ='style.css')}}">
+ -->
+	</head>
+		<body>	
+			{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages%}
+							{{message}}
+						{% endfor %}
+					{% endif %}
+			{% endwith %}
+			<section id = 'showcase'>
+				<!-- <div class = 'container'>
+					{% for name in firstname %}		
+						<h1> Welcome {{name[0]}}<h1>
+					{% endfor %}
+				</div> -->
+
+				<header class = 'half-black'>
+					<div class="container">
+						<nav>
+							<ul>
+								{% if not session['username'] %}
+									<li><a href = {{ url_for("home")}}>Home</a></li>
+								{% else %}
+									<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+										<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+											
+								{% endif %}	
+									<li><a href = "#">About</a></li>
+									<li><a href = "#">Contact us</a></li>
+								{% if not session['username'] %}
+									<li><a href = {{ url_for("register")}} >Register</a></li>
+									<li><a href = {{ url_for("login")}}>Sign in</a></li>
+								{% else %}
+									<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+								{% endif %}	
+							</ul>
+						</nav>
+					</div>
+				</header>	
+
+				<div class='container'>
+					<h1> RECIPE</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+
+				<div class = 'searchbar'>
+					<input type="text" name="search" placeholder="Search for recipes">
+				</div>	
+
+			</section>
+
+			<section id = 'banner'>
+				
+				<div class='container'>
+						<h1>What to cook this week?</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+			</section>
+			
+				<br><br><br>
+				{% if session['username'] %}
+					<div class = 'container'>
+						<div class = 'addrecipebutton'>
+							<h1><a href = 'addrecipe'> Add Recipe </a></h1>
+						</div>
+					</div>	
+				{% endif %}
+				<div id ='articlecontainer'>
+					<div class = 'row'>
+						{% for n in recipe %}
+							<div class = 'column'>
+								<a href = "{{ url_for('article', id = n[0])}}">
+								<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
+								<h3> {{n[1]}}</h3>
+								<div class = 'descriptionbox'>
+									<p>{{n[2]}}</p>
+								</div>
+								</a>
+								<br>
+							</div>
+						{% endfor %}
+						</div>	
+					</div>
+				<div class = 'navcontainer'>
+					<nav>
+						<ul class = 'pagination'>
+							<li><a href = '#'><<</a></li>
+							<li><a href = '#'>1</a></li>
+							<li><a href = '#'>2</a></li>
+							<li><a href = '#'>3</a></li>
+							<li><a href = '#'>4</a></li>
+							<li><a href = '#'>5</a></li>
+							<li><a href = '#'>>></a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</body>
+</html>
+{% endblock %}
+
+
+

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<section>
+
+	<header class = 'half-black'>
+			<div class="container">
+				<nav>
+					<ul>
+						{% if not session['username'] %}
+									<li><a href = {{ url_for("home")}}>Home</a></li>
+						{% else %}
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+											
+						{% endif %}	
+							<li><a href = "#">About</a></li>
+							<li><a href = "#">Contact us</a></li>
+						{% if not session['username'] %}
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
+						{% else %}
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+						{% endif %}	
+					</ul>
+				</nav>
+			</div>
+		</header>
+	
+		<div class ='container'>
+			<h1>Sign In</h1>
+		</div>
+		<hr>
+
+		<div class ='container'>
+			<form method = "POST" action = "login">
+				<div>
+				    <label>Username</label><br>
+				    <input type="text" class="container"  placeholder="Enter Username" name = "username">
+	  			</div>
+	  			<br>
+			  	<div>
+				    <label >Password</label><br>
+				    <input type="password" class="container" placeholder="Password" name ="password">
+				</div>
+			  	<br><br>
+			  	<div>
+			  		<button type="submit">Sign In</button>
+			  	</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}

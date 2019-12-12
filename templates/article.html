@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages%}
+			{{message}}
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+<section id = 'showcase'>
+	<!-- <div class = 'container'>
+		{% for name in firstname %}		
+			<h1> Welcome {{name[0]}}<h1>
+		{% endfor %}
+	</div> -->
+
+	<header class = 'half-black'>
+		<div class="container">
+			<nav>
+				<ul>
+				{% if not session['username'] %}
+					<li><a href = {{ url_for("home")}}>Home</a></li>
+				{% else %}
+					<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+					<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+											
+				{% endif %}	
+					<li><a href = "#">About</a></li>
+					<li><a href = "#">Contact us</a></li>
+				{% if not session['username'] %}
+					<li><a href = {{ url_for("register")}} >Register</a></li>
+					<li><a href = {{ url_for("login")}}>Sign in</a></li>
+				{% else %}
+					<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+				{% endif %}	
+				</ul>
+			</nav>
+		</div>
+	</header>	
+	
+	<div class='container'>
+		<h1> RECIPE </h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+
+	<div class = 'searchbar'>
+		<input type="text" name="search" placeholder="Search for recipes">
+	</div>	
+
+</section>
+	
+<section id = 'recipeshowcase'>
+	{% for n in recipe %}
+
+	<article id = 'dishnamesummarygroup'>
+		<article id = 'pictureshowcase'>
+			<div class = 'container'>
+				<img src = "{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" >
+			</div>
+		</article>
+		<article id = 'dishnameshowcase'>
+			<div class = 'container'>
+				<h2>{{n[1]}}</h2>				
+			</div>
+			<div class = 'container'>
+				<p>By {{n[6]}}</p>
+			</div>
+		</article>
+		<article id = 'descriptionshowcase'>
+			<div class = 'container'> 
+				<p>{{n[2]}}</p>	
+			</div>
+			</article>
+	</article>
+
+	<article id = 'ingredientsshowcase'>
+		<div class = 'container'>
+			<p>{{n[3]}}</p>				
+		</div>
+	</article>
+	<article id = 'directionsshowcase'>
+		<div class = 'container'>
+			<p>{{n[4]}}</p>				
+		</div>
+	</article>
+
+	<article class = 'links'>
+		
+			
+			{% if session['username'] %}
+				<div class = 'container'>
+					<a href = "{{ url_for('addtoreadinglist', id = n[0])}}">Add to reading list</a>
+				</div>
+			
+				<div class = 'container'>
+					<a href = "{{ url_for('removefromreadinglist', id = n[0])}}">Remove from reading list</a>
+				</div>
+				
+			{% endif %}	
+
+			{% if session['username'] == n[6] %}
+			<form method="POST", action="article">
+				
+				<div class ='container'>
+					<a href = "{{ url_for('update', id = n[0])}}">Edit Recipe</a>
+				</div>
+
+				<div class = 'container'>
+					<a href = "{{ url_for('delete', id = n[0])}}">Delete Recipe</a>
+					</div>
+			</form>	
+			{% endif %}		
+	</article>
+
+	{% endfor %}
+	
+	<hr>
+	{% if session['username'] %}
+		<article id = 'commentbox' >
+			<div class = 'container'>
+				<form method="POST", action = {{id}}>
+					<label>Comments:</label><br>
+					<textarea name = 'comments' placeholder="Enter comments"></textarea> 
+					<br>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</article>
+	<hr>
+
+	{% endif %}
+	<section id = 'commentsection'>
+		<div class = 'commentheader'>
+			<div class = 'container'>
+				<h1>Comments</h1>
+			</div>
+		</div>
+		{% for n in comments %}
+		<div class = 'comments'>
+			<div class ='container'>
+				
+				<h3> {{n[1]}}</h3>
+				<p>{{n[0]}}</p>
+				
+			</div>	
+		</div>
+		{% endfor %}
+	</section>
+
+	
+
+</section>
+
+{% endblock %}
+

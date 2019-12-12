@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename ='style.css')}}">
+	</head>
+
+		<body>
+
+				{% block content %}{% endblock %}
+		</body>
+
+		<footer class = 'footcontainer'>
+					<div class="upperfooter">
+						<div class = 'row'>
+							<div class ='footercolumn'>
+								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat.</h3>
+							</div>
+							<div class ='footercolumn'>
+								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. </h3>
+							</div>
+							<div class ='footercolumn'>
+								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat.</h3>
+							</div>
+						</div>
+					</div>
+			<div class = 'lowerfooter'>
+				&copy 2019 recipe4share.com  All Rights Reserved.
+			</div>
+		</footer>
+</html>
