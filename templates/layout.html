@@ -4,17 +4,21 @@
 	<head>
 	
 		<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename ='style.css')}}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>hamburger</title>
+	
 	</head>
 
 		<body>
+			<div id = 'fullbodycontainer'>
+				<div class = 'main'>
+					{% block content %}{% endblock %}
+				</div>
+			</div>
 
-				{% block content %}{% endblock %}
-		</body>
-
-		<footer class = 'footcontainer'>
-					<div class="upperfooter">
-						<div class = 'row'>
-							<div class ='footercolumn'>
+				<footer>
+					<div class = 'row'>
+						<div class ='footercolumn'>
 								<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -33,9 +37,9 @@
 								consequat.</h3>
 							</div>
 						</div>
-					</div>
-			<div class = 'lowerfooter'>
+					<div>
 				&copy 2019 recipe4share.com  All Rights Reserved.
-			</div>
+				</div>
 		</footer>
+		</body>
 </html>

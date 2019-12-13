@@ -96,17 +96,21 @@ def profile(username):
 @app.route('/register', methods =['POST','GET'])
 def register():
 	if request.method == 'POST':
-		username = request.form['username']
-		password = request.form['password']
-		email = request.form['email']
-		firstname = request.form['firstname']
-		lastname = request.form['lastname']
-		cur = mysql.connection.cursor()
-		cur.execute("INSERT INTO user(username, password, email, firstname, lastname) VALUES(%s, %s, %s, %s, %s)",(username, password, email, firstname, lastname))
-		mysql.connection.commit()
-		cur.close()
-		flash('Registration Complete')
-		return redirect(url_for('home'))
+		if request.form['username'] == '' or request.form['password'] == '' or request.form['email'] == '' or request.form['firstname'] == '' or request.form['lastname'] == '':
+			flash('Please fill up all the forms')
+			return redirect(url_for('register'))
+		else:
+			username = request.form['username']
+			password = request.form['password']
+			email = request.form['email']
+			firstname = request.form['firstname']
+			lastname = request.form['lastname']
+			cur = mysql.connection.cursor()
+			cur.execute("INSERT INTO user(username, password, email, firstname, lastname) VALUES(%s, %s, %s, %s, %s)",(username, password, email, firstname, lastname))
+			mysql.connection.commit()
+			cur.close()
+			flash('Registration Complete')
+			return redirect(url_for('home'))
 
 	return render_template('register.html')
 
@@ -130,7 +134,7 @@ def login():
 			return redirect(url_for('home', username = username))
 		else:
 			flash('Incorrect Username or Password')
-			return redirect(url_for('home'))
+			return redirect(url_for('login'))
 
 	return render_template('login.html')
 

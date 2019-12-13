@@ -1,0 +1,16 @@
+				<div id ='articlecontainer'>
+					<div class = 'row'>
+						{% for n in recipe %}
+							<div class = 'column'>
+								<a href = "{{ url_for('article', id = n[0])}}">
+								<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
+								<h3> {{n[1]}}</h3>
+								<div class = 'descriptionbox'>
+									<p>{{n[2]}}</p>
+								</div>
+								</a>
+								<br>
+							</div>
+						{% endfor %}
+					</div>	
+				</div>

@@ -57,7 +57,7 @@
 			<div class = 'container'>
 				<h1>{{username}}'s recipes</h1>
 			</div>
-			<div id = 'articlecontainer'>
+			<div id = 'profilerecipecontainer'>
 				<div class = 'container'>
 					<div class = 'row'>
 						{% for n in UsersRecipe %}
@@ -75,11 +75,10 @@
 					</div>
 				</div>	
 			</div>
-			
 			<div class = 'container'>
 				<h1>{{username}}'s reading list</h1>
 			</div>
-			<div id ='articlecontainer'>
+			<div id ='profilerecipecontainer'>
 				<div class = 'row'>
 					{% for n in UsersReadingList %}
 						<div class = 'column'>
@@ -97,12 +96,6 @@
 			</div>
 		</section>
 </section>
-
-
-
-
-
-
 
 
 {% endblock %}
