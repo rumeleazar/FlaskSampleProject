@@ -185,6 +185,9 @@ def addrecipe():
 
 	return render_template('addrecipe.html')
 
+	return render_template('index.html',recipe = recipe, imagename = imagename)
+
+
 
 #THIS IS THE WHERE YOU CAN CLICK THE RECIPE AND IT WILL REDIRECT YOU TO THE RECIPE DETAILS
 @app.route('/article/<id>', methods = ['POST','GET'])

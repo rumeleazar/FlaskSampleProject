@@ -26,13 +26,14 @@ footer 	{
 	clear: both;
 	height: 250px;
 	background-color: #DEB887 ;
-	font-size: 12px;
+	font-size: 8px;
 	text-align: center;
 }
 
 footer .footercolumn {
 	display: inline-block;
 	width: 28%
+
 }
 
 
@@ -83,13 +84,14 @@ img {
 	height: auto;
 	display: flex;
 	flex-direction: column;
-	border: 5px solid brown;
+
+
 
 }
 
 #articlecontainer{
 	width: 100%;
-	min-height: 400px;
+	min-height: 700px;
 	height: auto;
 	margin: auto;
 	padding:0;
@@ -99,7 +101,7 @@ img {
 	position: relative;
 	display: inline-block;
 	align-items: center;
-
+	
 
 }
 	
@@ -269,13 +271,13 @@ nav a{
 #banner {
 	text-align: center;
 	position: relative;
-
 	margin: 0;
-	padding 0;
+	padding:0;
+
 }
 
 #banner h1{
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: bold;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	padding-bottom: 0;
@@ -283,11 +285,12 @@ nav a{
 }
 
 #banner p{
-	font-size: 25px;
+	font-size: 23px;
 	font-style: oblique;
 	margin-top: 10px;
 	padding-top: 0;
 }
+
 
 
 /*Article Section*/
@@ -304,7 +307,7 @@ nav a{
 	height: auto;
 	display: flex;
 	flex-direction: column;
-	border: 5px solid red;
+	
 
 }
 
