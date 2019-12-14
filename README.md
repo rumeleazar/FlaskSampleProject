@@ -20,4 +20,5 @@ This project is still not finished. There are still some work to do:
 3. Make the ingredients and directions to be a list instead of just plain text
 4. Make the website responsive
 5. The website design
+6. Add the date when the recipe is created
 
