@@ -10,29 +10,37 @@ html  	{
 }
 
 body	{
-	background-color: #FFFFF0;
+	background-color: #F5F5DC;
 	color: #2F4F4F;
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 
+
 }
 
 
 footer 	{
+/*	background-image: url('/static/images/town.png');
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size:contain ;*/
 	width: 100%;
-	margin-top: -250px;
+	margin-top: -150px;
 	clear: both;
-	height: 250px;
-	background-color: #DEB887 ;
+	height: 150px;
+	background-color:#F5F5DC ;
 	font-size: 8px;
-	text-align: center;
+	border-top: 1px solid black;
+	margin: auto;
+	float:right;
 }
 
-footer .footercolumn {
-	display: inline-block;
-	width: 28%
+footer p {
+	font-size: 20px;
+	float:right;
+	transform: translateY(150%);	
 
 }
 
@@ -44,12 +52,12 @@ footer .footercolumn {
 
 .main {
 	overflow: auto;
-	padding-bottom: 250px; 
+	padding-bottom: 150px; 
 
 
 }
-.container{
-	width: 80%;	
+.container{	
+	width: 80%;
 	margin: 0 auto;
 	overflow: hidden;
 	padding: 0;
@@ -74,7 +82,7 @@ img {
 /* Article Page */
 #articlebox {
 
-	width: 90%;
+	width: 80%;
 	margin: auto;
 	overflow: auto;
 	position: relative;
@@ -84,27 +92,84 @@ img {
 	height: auto;
 	display: flex;
 	flex-direction: column;
-
-
+	
 
 }
 
 #articlecontainer{
 	width: 100%;
-	min-height: 700px;
+	min-height: 500px;
 	height: auto;
 	margin: auto;
 	padding:0;
 	overflow: auto;
 	justify-content: center;
-	text-align: center;
 	position: relative;
 	display: inline-block;
 	align-items: center;
-	
+	border-top: 1px solid #ead1ae;
+}
+
+
+#introduction {
+	width: 100%;
+	min-height: 500px;
+	height: auto;
+	margin: auto;
+	position: relative;
+	display: inline-flex;
+	padding: 50px 0 0 0;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	border-top: 1px solid #ead1ae;
+}
+}
+
+
+#introduction img {
+	border-radius: 100%;
+	border: 4px solid white;
+	height:400px;
+	width: 400px;
 
 }
-	
+
+.introdescription {
+	width: 55%;
+	margin: auto;
+}
+
+.introdescription h1 {
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; ;
+	font-size:40px;
+	height: auto;
+	padding: 0;
+}
+
+.introdescription p {
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; ;
+	font-size:30px;
+	height: auto;
+	padding: 0;
+}
+
+.introimage {
+	width: 30%;
+	margin: auto;
+	padding: 0;
+	border-radius: 100%;
+
+}
+.introimage img{
+	border-radius: 100%;
+	height: 100%
+	width: 100%;
+	border: 8px solid white;
+
+}
+
 
 .row{
 	padding: 0 ;
@@ -114,30 +179,36 @@ img {
 	display:inline-block;
 }
 
+.row h1 {
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	font-size: 40px;
+}
+
 .column{
 	overflow: hidden;
 	width: 224px;
-	height: 320px;
-	background-color: #FFFFFF;
+	height: 400px;
+	background-color: #F5F5DC;
 	text-align: center;
 	padding: 10px;	
 	margin: 5px 10px;
-	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.2);
 	display: inline-block;
 	position: relative;
+	
 }
 
 
 .column h3 {
-	font-size: 15px;
-	margin: 0;
+	font-size: 20px;
+	margin-top: 20px;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
 
 .column p {
 	font-size: 12px;
-	margin:10px;
-	padding: 10px;	
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	margin: 0;	
 }
 
 
@@ -145,6 +216,8 @@ img {
 	max-height: 100%;
 	max-width: 100%;
 	object-fit: fill;
+	border-radius: 100%;
+	border: 4px solid white;
 }
 
 
@@ -171,43 +244,40 @@ img {
 
 /*Headers */
 header {
-	max-height: 60px;
-	min-height: 60px;
-	margin: none;
-	padding: auto;
-	width: 100%;
-	text-align: left; 
+	height: 80px;
+	margin: auto;
+	padding: none;
+	width: 100%; 
 	position:relative;
-	left: 0;
 	top:0;
-	vertical-align: middle;
 }
 
+
 .half-black {
-  background: rgba(80,20,0,0.6);
+  background: rgba(0,0,0,0);
 
 }
 
 nav li{
 
-	font: candara;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	text-decoration: none;
 	text-transform: uppercase;
-	margin-right: 20px;
 	position: relative;
 	list-style-type: none;
-	display: inline;
-	
-	
+	display: inline-block;
+	float: left;
+	margin: auto;	
 }
 
 
 nav a{
 	font-weight: bold;
-	color: #FFFAF0 ;
-	font-size: 15px;
+	color: #696969;
+	font-size: 16px;
 	text-decoration: none;
-	text-shadow: 3px 3px 3px black;
+	margin-right: 20px;
+
 
 }
 
@@ -219,38 +289,77 @@ nav a{
 
 }
 
+/*login form */
+.logincontainer {
+	 border:5px solid red;
+	 width: 400px;
+	 margin: 8% auto;
+	 text-align: center;
+	 background-color: white;
+	 height: 561px;
+
+
+
+}
+
+.logincontainer button {
+	width: 70%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	
+}
+
+.logincontainer input {
+	width: 70%;
+	margin: 5% auto;
+	height: 30px;
+
+}
+
+.formsbox {
+	border:2px solid black;
+	transform: translateY(50%);
+
+}
+
+
+
 /*SHOWCASE */
 
 #showcase{
-	background-image: url('/static/images/food.jpeg');
+	background-image: url('/static/images/food2.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	text-align: center;
-	margin: none;
+	margin: 0 auto;
 	min-height: 450px;
 	max-height: 500px;
 	border: none;
 	text-shadow: 2px 2px black;
-	width: 100%;
+	width: 80%;
+	border-radius: 40px;
+	box-shadow: 0 20px 40px;
 
 
 }
  #showcase h1{
- 	font-size: 50px;
- 	color: #FFFFF0;
+ 	font-size: 60px;
  	margin-bottom: 10px;
  	position: relative;
-	margin-top: 50px;
-
+	margin-top: 120px;
+  	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  	color: #F0F8FF;
+  	text-shadow: 4px 4px 3px black; 
+}
  	
-
- }
 
  #showcase p{
  	font-size: 15px;
- 	color: #FFFFF0;
- 	margin-top: 0;
+ 	color: #F0F8FF;
+ 	margin-top: 40px;
+ 	text-shadow: 4px 4px 3px black; 
 
  
  }
@@ -277,9 +386,9 @@ nav a{
 }
 
 #banner h1{
-	font-size: 40px;
+	font-size: 50px;
 	font-weight: bold;
-	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
@@ -308,7 +417,6 @@ nav a{
 	display: flex;
 	flex-direction: column;
 	
-
 }
 
 .links  {

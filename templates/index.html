@@ -12,15 +12,9 @@
 {% endwith %}
 
 
-<section id = 'showcase'>
-	<!-- <div class = 'container'>
-		{% for name in firstname %}		
-			<h1> Welcome {{name[0]}}<h1>
-		{% endfor %}
-	</div> -->
-	<header class = 'half-black'>
+<header class = 'half-black'>
 		<div class="container">
-			<nav>
+			<nav>	
 				<ul>
 					{% if not session['username'] %}
 						<li><a href = {{ url_for("home")}}>Home</a></li>
@@ -40,10 +34,12 @@
 				</ul>
 			</nav>
 		</div>
-	</header>	
+</header>	
 
+
+<section id = 'showcase'>
 	<div class='container'>
-		<h1> RECIPE</h1>
+		<h1> Great Vibes </h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>					
 	</div>
 
@@ -64,8 +60,28 @@
 		{% endif %}
 		</div>
 	</div>
+	<div id = 'introduction'>
+				<div class = 'introdescription'>
+					<h1> LOREM IPSUM </h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.
+					</p>
+				</div>
+
+				<div class = 'introimage'>
+					<img src = '/static/images/gourmet.jpg'>
+				</div>
+							
+	</div>
+	
 	<div id ='articlecontainer'>
 		<div class = 'row'>
+			<h1> Recipe Collection </h1>
 			{% for n in recipe %}
 				<div class = 'column'>
 					<a href = "{{ url_for('article', id = n[0])}}">
@@ -86,3 +102,4 @@
 
 
 {% endblock %}
+
