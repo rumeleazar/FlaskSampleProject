@@ -15,21 +15,21 @@
 <header class = 'half-black'>
 		<div class="container">
 			<nav>	
+				<h2>RecipeShare</h2>
 				<ul>
 					{% if not session['username'] %}
-						<li><a href = {{ url_for("home")}}>Home</a></li>
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
 					{% else %}
-						<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-						<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
-											
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
 					{% endif %}	
-						<li><a href = "#">About</a></li>
-						<li><a href = "#">Contact us</a></li>
+									
+							<li><a href = "#">About</a></li>
+
 					{% if not session['username'] %}
-						<li><a href = {{ url_for("register")}} >Register</a></li>
-						<li><a href = {{ url_for("login")}}>Sign in</a></li>
+							<li><a href = {{ url_for("home")}}>Home</a></li>
 					{% else %}
-						<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
 					{% endif %}	
 				</ul>
 			</nav>
@@ -45,8 +45,7 @@
 
 	<div class = 'searchbar'>
 		<input type="text" name="search" placeholder="Search for recipes">
-	</div>	
-
+	</div>		
 </section>
 <section id ='articlebox'>
 	<div id = 'banner'>			
@@ -81,17 +80,18 @@
 	
 	<div id ='articlecontainer'>
 		<div class = 'row'>
-			<h1> Recipe Collection </h1>
+			<h1>What to cook this week?</h1>
 			{% for n in recipe %}
 				<div class = 'column'>
-					<a href = "{{ url_for('article', id = n[0])}}">
 					<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
 					<h3> {{n[1]}}</h3>
 				<div class = 'descriptionbox'>
 					<p>{{n[2]}}</p>
 				</div>
-					</a>
 					<br>
+					<a href = "{{ url_for('article', id = n[0])}}">
+						<button> Read More</button>
+					</a>
 				</div>
 			{% endfor %}
 		</div>	

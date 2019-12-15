@@ -6,6 +6,7 @@ html  	{
 	margin: 0;
 	width: 100%;
 	height: 100%;
+	min-height: 100%;
 	
 }
 
@@ -16,31 +17,29 @@ body	{
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	overflow: auto;
 
 
 }
 
 
 footer 	{
-/*	background-image: url('/static/images/town.png');
-	background-repeat: repeat-x;
-	background-position: center;
-	background-size:contain ;*/
 	width: 100%;
 	margin-top: -150px;
 	clear: both;
 	height: 150px;
-	background-color:#F5F5DC ;
+	background-color:#F5F5DC;
 	font-size: 8px;
-	border-top: 1px solid black;
 	margin: auto;
 	float:right;
+	background: rgba(0,0,0,0.1);
+	text-align: center;
 }
 
 footer p {
 	font-size: 20px;
-	float:right;
-	transform: translateY(150%);	
+	transform: translateY(150%);
+	color: black;
 
 }
 
@@ -93,6 +92,7 @@ img {
 	display: flex;
 	flex-direction: column;
 	
+	
 
 }
 
@@ -108,6 +108,23 @@ img {
 	display: inline-block;
 	align-items: center;
 	border-top: 1px solid #ead1ae;
+	text-align: center;
+	
+}
+
+
+#articlecontainer button {
+	padding: 1px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
+	margin-top: 5px;
+
+}
+
+#articlecontainer button:hover {
+	background: rgba(0,0,0,0.2)
+
 }
 
 
@@ -115,41 +132,43 @@ img {
 	width: 100%;
 	min-height: 500px;
 	height: auto;
-	margin: auto;
+	margin-bottom: 20px;
 	position: relative;
 	display: inline-flex;
-	padding: 50px 0 0 0;
+	padding: 10px 0 0 0;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
 	border-top: 1px solid #ead1ae;
+
 }
-}
+
 
 
 #introduction img {
 	border-radius: 100%;
-	border: 4px solid white;
 	height:400px;
 	width: 400px;
+	
 
 }
 
 .introdescription {
 	width: 55%;
 	margin: auto;
+	
 }
 
 .introdescription h1 {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; ;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
 	font-size:40px;
 	height: auto;
 	padding: 0;
 }
 
 .introdescription p {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; ;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
 	font-size:30px;
 	height: auto;
 	padding: 0;
@@ -177,11 +196,14 @@ img {
 	margin: 0;
 	padding: 0;	
 	display:inline-block;
+
 }
 
 .row h1 {
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-	font-size: 40px;
+	font-size: 60px;
+
+
 }
 
 .column{
@@ -236,8 +258,9 @@ img {
 	position: flex;
 	overflow: hidden;
  	 display: -webkit-box;
-  	-webkit-line-clamp: 3;
+  	-webkit-line-clamp: 5;
   	-webkit-box-orient: vertical;
+  	text-align: center;
 }
 
 
@@ -258,6 +281,11 @@ header {
 
 }
 
+.loginnav {
+	background: rgba(0,0,0,0.1);
+	font-color: white;
+}
+
 nav li{
 
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
@@ -266,8 +294,18 @@ nav li{
 	position: relative;
 	list-style-type: none;
 	display: inline-block;
-	float: left;
-	margin: auto;	
+	margin: auto;
+	float: right;	
+}
+
+nav h2 {
+	float:left;
+	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  	color: #FFFF;
+  	text-shadow: 3px 1px 3px black; 
+  	font-size: 47px;
+  	margin: auto 20px;
+  	padding-top: 5px;
 }
 
 
@@ -290,15 +328,19 @@ nav a{
 }
 
 /*login form */
+
+.loginpage {
+	background: url('/static/images/login.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+
+
 .logincontainer {
-	 border:5px solid red;
 	 width: 400px;
 	 margin: 8% auto;
-	 text-align: center;
-	 background-color: white;
 	 height: 561px;
-
-
+	 background: rgba(0,0,0,0.6);
+	 align-content: center;
 
 }
 
@@ -307,19 +349,38 @@ nav a{
 	padding: 0;
 	margin: 5% auto;
 	height: 30px;
-	
+	cursor: pointer;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	background-color: red;
+
 }
 
 .logincontainer input {
 	width: 70%;
 	margin: 5% auto;
 	height: 30px;
-
+	border: none;
+	border-bottom: 1px solid white;
+	background:transparent;
+	outline: none;
+	font-size: 15px;
+	color: white;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
+.logincontainer label {
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	float;left: 
+	margin:0;
+	padding: 0;
+}
+
+
 .formsbox {
-	border:2px solid black;
-	transform: translateY(50%);
+	transform: translate(15%, 50%);
+	color:white;
 
 }
 
@@ -350,7 +411,7 @@ nav a{
  	position: relative;
 	margin-top: 120px;
   	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
-  	color: #F0F8FF;
+  	color: 	#8B4513;
   	text-shadow: 4px 4px 3px black; 
 }
  	
