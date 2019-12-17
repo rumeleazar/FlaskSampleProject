@@ -492,105 +492,198 @@ nav a{
 	height: auto;
 	display: flex;
 	flex-direction: column;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	
 }
 
 .links  {
 	position: relative;
-	text-align: center;
 	margin: 0;
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+	font-size: 22px;
+	border-top: 1px solid #ead1ae;
+	border-bottom:1px solid #ead1ae;
 
+	
 	
 }
 .links li {
+	list-style: none;
 	display: inline-block;
-	
+	margin: auto 40px;
+}
+
+.links a{
+	color: #696969;
+	text-decoration: none;
+}
+
+.links a:hover {
+	color:brown;
 }
 
 
 #dishnamesummarygroup {
 	width: 100%;
-	display:inline-block;
+	display:block;
 	padding: 0;
 	position: relative;
+	text-align: center;
+	justify-content: center;
+
 }
 
 #pictureshowcase {
-	width: 40%;
+	width: 95%;
 	padding: 0;
-	display:block;
-	margin: 4% 4% 4% 0;
-	display: block;
-	float: right;
 	position: relative;
 	align-items: center;
 	object-fit: fill;
+	margin: 10px auto;
+	
 	
 }
 
 #pictureshowcase img {
-
-	display: flex;
 	min-height: 300px;
 	min-width: 300px;
-	width: auto;
+	width: 100%;
 	height: auto;
 	align-self: center;
 	position: relative;
+	margin: 0;
+	border:5px solid white;
+}
+
+#pictureshowcase p {
+	margin: 0;
+	padding-top: 0;
+	font-size: 20px;
+	width: 100%;
+
 }
 
 #dishnameshowcase {
 	position: relative;
-	display:block;
 	padding: 0;
-	margin: 4% 0 0 4%;
-	float: left;
-	width: 40%;
+	width: 100%;
 	text-align: center;
 	position: relative;
-	clear:left;
+	height: auto;
+	margin-top: 40px;
+	border-top: 1px solid #ead1ae;
+	border-bottom:1px solid #ead1ae;
+
+	
 }
 
 #dishnameshowcase h2 {
 	padding: 0;
 	margin: 0;
-}
-
-#dishnameshowcase p {
-	padding: 1%;
-	margin: 0;
-}
-
-#descriptionshowcase {
-	position: relative;
-	display:block;
-	padding: 0;
-	margin: 0 0 4% 4%;
-	float: left;
-	width: 40%;
+	font-weight: bold;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	font-size: 70px;
 	text-align: center;
-	position: relative;
-	clear:left;
+
 }
+
+
+#dishnameshowcase h4 {
+	margin: 0;
+	margin-top: 3px;
+	padding-top: 0;
+	font-size: 28px;
+	width: 100%;
+	text-align: center;
+
+}
+
+
+#dishnamesummarygroup2 {
+	width: 100%;
+	display:inline-flex;
+	padding: auto;
+	position: relative;
+	justify-content: center;
+	margin-top: 50px;
+	border-bottom:1px solid #ead1ae;
+	padding-bottom: 40px;
+
+}
+
+
 
 #ingredientsshowcase {
-	width: 100%;
-	display: flex;
-	text-align: center;
-	margin: 4px 0;
+	width: 45%;
+	display: block;
+	margin: 0 0 0 5%;
 	position: relative;
-	padding: 0;
+	padding: auto;
+	font-size: 25px;
 
 
 }
 
-#directionsshowcase {
-	width: 100%;
-	display: flex;
+#ingredientsshowcase h1{
+	width: 85%;
 	text-align: center;
-	margin: 4px 0;
-	position: relative;
+	margin: auto;
+	font-size: 50px;
 
+
+}
+
+
+#ingredientsshowcase li{
+	margin: auto;
+	padding: 0 0 5px 30px;
+	list-style: none;
+	background-image: url('/static/images/ingredients.png');
+	background-repeat: no-repeat;
+	background-position: left ;
+	background-size: 30px;
+	text-align: center;
+	width: auto;
+
+
+}
+#directionsshowcase {
+	width:45%;
+	display: block;
+	margin:  0 5% 0 0;
+	position: relative;
+	font-size: 25px;
+	padding: auto;
+	text-align: center;
+	
+}
+
+#directionsshowcase h1{
+	width: 85%;
+	text-align: center;
+	margin: auto;
+	font-size: 50px;
+
+
+}
+
+
+#directionsshowcase li{
+ 	margin: auto;
+	padding: 0 0 5px 70px;
+	list-style: none;
+	background-image: url('/static/images/directions.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 30px;
+	text-align: justify;
+	width: auto;
+
+	
 }
 
 
@@ -601,6 +694,8 @@ nav a{
 	margin:0;
 	padding: 0;
 	display: block;
+	font-size: 25px;
+	text-align: center;
 
 }
 
@@ -615,6 +710,8 @@ nav a{
 	padding:0;
 	height: 100%;
 	min-height: 500px;
+	font-size: 40px;
+
 	
 }
 
@@ -625,6 +722,7 @@ nav a{
 	position: relative;
 	padding: 0px;
 	margin:0;
+	text-align: center;
 
 }
 
@@ -788,14 +886,6 @@ nav h2 {
 }
 
 
-
-
-
-
-
-
-
-
 /*ARTICLE CONTAINER QUERIES*/
 
 
@@ -807,18 +897,44 @@ nav h2 {
 	align-self: center;
 }
 
-
 }
 
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
 
-	#introduction {
+#introduction {
 	display: block;
 }
 
-	.introimage {
+.introimage {
 	width: 60%;
-	}
+}
+
+#pictureshowcase {
+	margin: auto;
+	height: auto;
+	
+}
+#dishnameshowcase {
+	margin: auto;
+	height: auto;
+}
+
+#dishnamesummarygroup2 {
+	display:block;	
 
 }
+
+#ingredientsshowcase {
+	width: 100%;
+	
+
+}
+#directionsshowcase {
+	width: 100%;
+	
+}
+}
+
+
+
