@@ -156,6 +156,8 @@ def logout():
 @app.route('/addrecipe', methods=['POST', 'GET'])
 def addrecipe():
 
+
+    #PROBLEM WITH THE INGREDIENTS SPLIT
     with sqlite3.connect('database.db') as conn:
         if request.method == 'POST':
             dishname = request.form['dishname']

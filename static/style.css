@@ -63,6 +63,11 @@ footer p {
 
 }
 
+.container::placeholder {
+	color:#2F4F4F;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
 a {
 	text-decoration: none;
 }
@@ -137,22 +142,10 @@ img {
 	display: inline-flex;
 	padding: 10px 0 0 0;
 	text-align: center;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
 	border-top: 1px solid #ead1ae;
 
 }
 
-
-
-#introduction img {
-	border-radius: 100%;
-	height:400px;
-	width: 400px;
-	
-
-}
 
 .introdescription {
 	width: 55%;
@@ -175,16 +168,20 @@ img {
 }
 
 .introimage {
-	width: 30%;
+	width: 40%;
 	margin: auto;
 	padding: 0;
-	border-radius: 100%;
+	text-align: center;
+	align-content: center;
+
 
 }
 .introimage img{
 	border-radius: 100%;
-	height: 100%
-	width: 100%;
+	min-height: 200px;
+	min-width: 200px;
+	height: 400px;
+	width: 400px;
 	border: 8px solid white;
 
 }
@@ -213,9 +210,10 @@ img {
 	background-color: #F5F5DC;
 	text-align: center;
 	padding: 10px;	
-	margin: 5px 10px;
+	margin: auto;
 	display: inline-block;
 	position: relative;
+
 	
 }
 
@@ -248,9 +246,13 @@ img {
 	margin: auto;
 }
 
-.addrecipebutton {
-	text-align: center;
-	align-items: center;
+.addrecipebutton img{
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: fill;
+	border-radius: 100%;
+	border: 4px solid white;
+
 }
 
 .descriptionbox {
@@ -267,7 +269,8 @@ img {
 
 /*Headers */
 header {
-	height: 80px;
+	height: auto;
+	min-height: 80px;
 	margin: auto;
 	padding: none;
 	width: 100%; 
@@ -286,16 +289,21 @@ header {
 	font-color: white;
 }
 
-nav li{
 
+
+
+
+
+
+nav li{
+	float:right;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	text-decoration: none;
 	text-transform: uppercase;
 	position: relative;
 	list-style-type: none;
-	display: inline-block;
 	margin: auto;
-	float: right;	
+		
 }
 
 nav h2 {
@@ -315,17 +323,18 @@ nav a{
 	font-size: 16px;
 	text-decoration: none;
 	margin-right: 20px;
-
-
 }
 
 #LogoutButton {
 	float: right;
 	position: relative;
 
-
-
 }
+
+
+
+
+
 
 /*login form */
 
@@ -353,7 +362,7 @@ nav a{
 	border-radius: 25px;
 	border: none;
 	outline: none;
-	background-color: red;
+	background-color:#FF7F50;
 
 }
 
@@ -405,7 +414,7 @@ nav a{
 
 
 }
- #showcase h1{
+ #showcase h3{
  	font-size: 60px;
  	margin-bottom: 10px;
  	position: relative;
@@ -434,6 +443,12 @@ nav a{
 	border-radius: 20px;
 	font-size: 20px;
 }
+
+.searchbar ::placeholder {
+	color:#2F4F4F;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
 
 
 /*BANNER */
@@ -622,11 +637,81 @@ nav a{
 
 /*Register Section*/
 
-#register {
+
+.registrationpage {
+	background: url('/static/images/login.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+
+#registrationbox {
+	min-width: 20%;
 	width: 100%;
+	display: flex;
+	margin: auto;
+	padding: 0;
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
 	position: relative;
+}
+
+#registercontainer{
+ 	 width: 500px;
+	 margin: 8% auto;
+	 height: 600px;
+	 background: rgba(0,0,0,0.6);
+	 text-align: center;
+	 padding: 0;
+}
+
+#registercontainer h3 {
+	margin: 0;	
+}
+
+#registercontainer input {
+	width: 70%;
+	margin: 5% auto;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid white;
+	background:transparent;
+	outline: none;
+	font-size: 15px;
+	color: white;
+	
+}
+
+
+#registercontainer button {
+	width: 70%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	background-color: #FF7F50;
 
 }
+
+.registerform {
+	height: 100%;
+	padding-top: 50px;
+	color: white;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+}
+
+
+::placeholder {
+ 	color:white;
+
+}
+
+
+
 
 
 /*Profile Section*/
@@ -659,4 +744,81 @@ nav a{
 	overflow-x: scroll;
 	overflow-y: hidden;
 	
+}
+
+
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 800px) {
+
+/*HEADER QUERIES*/
+nav ul{
+	background: rgba(0,0,0,0.3);
+}
+
+header .container {
+	width: 100%;
+}
+
+nav li {
+	float:none;
+	width: 100%;
+	text-align: center;
+
+}
+
+nav h2 {
+	float: none;
+	width: 100%;
+	text-align: center;
+
+}
+
+
+/*SHOWCASE QUERIES*/
+
+#showcase .container h3 {
+	display:none;
+
+}
+
+#showcase .searchbar {
+	margin-top:	40%;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+/*ARTICLE CONTAINER QUERIES*/
+
+
+.column {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	align-self: center;
+}
+
+
+}
+
+
+@media screen and (max-width: 1100px) {
+
+	#introduction {
+	display: block;
+}
+
+	.introimage {
+	width: 60%;
+	}
+
 }

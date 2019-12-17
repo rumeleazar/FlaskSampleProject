@@ -10,8 +10,7 @@
 		{% endfor %}
 	{% endif %}
 {% endwith %}
-
-
+			
 <header class = 'half-black'>
 		<div class="container">
 			<nav>	
@@ -29,6 +28,7 @@
 					{% if not session['username'] %}
 							<li><a href = {{ url_for("home")}}>Home</a></li>
 					{% else %}
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
 							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
 					{% endif %}	
 				</ul>
@@ -39,10 +39,8 @@
 
 <section id = 'showcase'>
 	<div class='container'>
-		<h1> Great Vibes </h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>					
+		<h3> Find a Recipe </h3>					
 	</div>
-
 	<div class = 'searchbar'>
 		<input type="text" name="search" placeholder="Search for recipes">
 	</div>		
@@ -52,11 +50,6 @@
 		<div class='container'>
 		<h1>What to cook this week?</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		{% if session['username'] %}
-			<div class = 'addrecipebutton'>
-				<button type = 'button'><a href = 'addrecipe'> Create your own recipe </a></button>
-			</div>
-		{% endif %}
 		</div>
 	</div>
 	<div id = 'introduction'>
@@ -85,21 +78,25 @@
 				<div class = 'column'>
 					<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
 					<h3> {{n[1]}}</h3>
-				<div class = 'descriptionbox'>
-					<p>{{n[2]}}</p>
-				</div>
-					<br>
+					<div class = 'descriptionbox'>
+						<p>{{n[2]}}</p>
+					</div>
+						<br>
 					<a href = "{{ url_for('article', id = n[0])}}">
 						<button> Read More</button>
 					</a>
-				</div>
-			{% endfor %}
+				</div>	
+			{% endfor %}	
 		</div>	
+		<br><br><br><br>
+		{% if session['username'] %}
+			<div class ='addrecipebutton'>
+				<a href = 'addrecipe'>
+					<button type="button"><a href = 'addrecipe'> Share your own recipe!</a></button>
+				</a>
+			</div>
+		{% endif %}	
 	</div>
 </section>
 
-	
-
-
 {% endblock %}
-

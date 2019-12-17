@@ -10,49 +10,31 @@
 	{% endif %}
 {% endwith %}
 
-<section id = 'showcase'>
-	<!-- <div class = 'container'>
-		{% for name in firstname %}		
-			<h1> Welcome {{name[0]}}<h1>
-		{% endfor %}
-	</div> -->
-
-	<header class = 'half-black'>
+<header class = 'loginnav'>
 		<div class="container">
-			<nav>
+			<nav>	
+				<h2>RecipeShare</h2>
 				<ul>
-				{% if not session['username'] %}
-					<li><a href = {{ url_for("home")}}>Home</a></li>
-				{% else %}
-					<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-					<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
-											
-				{% endif %}	
-					<li><a href = "#">About</a></li>
-					<li><a href = "#">Contact us</a></li>
-				{% if not session['username'] %}
-					<li><a href = {{ url_for("register")}} >Register</a></li>
-					<li><a href = {{ url_for("login")}}>Sign in</a></li>
-				{% else %}
-					<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
-				{% endif %}	
+					{% if not session['username'] %}
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
+					{% else %}
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+					{% endif %}	
+									
+							<li><a href = "#">About</a></li>
+
+					{% if not session['username'] %}
+							<li><a href = {{ url_for("home")}}>Home</a></li>
+					{% else %}
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+					{% endif %}	
 				</ul>
 			</nav>
 		</div>
-	</header>	
-	
-	<div class='container'>
-		<h1> RECIPE </h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua.</p>
-		</div>
+</header>	
 
-	<div class = 'searchbar'>
-		<input type="text" name="search" placeholder="Search for recipes">
-	</div>	
-
-</section>
-	
 <section id = 'recipeshowcase'>
 	{% for n in recipe %}
 
@@ -79,12 +61,23 @@
 
 	<article id = 'ingredientsshowcase'>
 		<div class = 'container'>
-			<p>{{n[3]}}</p>				
+			{% set ing = n[3].split('\n') %}	
+			{% for x in ing %}
+			<ul>
+				<li> {{x}}</li>
+			</ul>
+			{% endfor %}
+	
 		</div>
 	</article>
 	<article id = 'directionsshowcase'>
 		<div class = 'container'>
-			<p>{{n[4]}}</p>				
+			{% set dir = n[4].split('\n') %}	
+			{% for y in dir %}
+			<ol>
+				<li> {{y}}</li>
+			</ol>
+			{% endfor %}			
 		</div>
 	</article>
 
