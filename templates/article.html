@@ -40,19 +40,19 @@
 	<article id = 'dishnamesummarygroup'>
 		<article id = 'dishnameshowcase'>
 			<div class = 'container'>
-				<h2>{{n[1]}}</h2>				
+				<h2>{{n[0]}}</h2>				
 			</div>
 			<div class = 'container'>
-				<h4>By {{n[6]}}</h4>
+				<h4>By {{n[1]}} {{n[2]}}</h4>
 			</div>
 		</article>
 
 		<article id = 'pictureshowcase'>
 			<div class = 'container'>
-				<img src = "{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" ><br>
+				<img src = "{{ url_for('static' , filename = 'images/recipeimages/' + n[3])}}" ><br>
 			</div>
 			<div class = 'container'> 
-				<p>{{n[2]}}</p>	
+				<p>{{n[4]}}</p>	
 			</div>
 		</article>
 	</article>
@@ -60,14 +60,14 @@
 	<article class = 'links'>
 			<ul>
 				{% if session['username'] %}
-					<li><h2><a href = "{{ url_for('addtoreadinglist', id = n[0])}}">Add to reading list</a></h2></li>
+					<li><h2><a href = "{{ url_for('addtoreadinglist', id = n[7])}}">Add to reading list</a></h2></li>
 
-					<li><h2><a href = "{{ url_for('removefromreadinglist', id = n[0])}}">Remove from reading list</a></h2></li>
+					<li><h2><a href = "{{ url_for('removefromreadinglist', id = n[7])}}">Remove from reading list</a></h2></li>
 				{% endif %}	
-				{% if session['username'] == n[6] %}
-					<li><h2><a href = "{{ url_for('update', id = n[0])}}">Edit Recipe</a></h2></li>
+				{% if session['username'] == n[8] %}
+					<li><h2><a href = "{{ url_for('update', id = n[7])}}">Edit Recipe</a></h2></li>
 
-					<li><h2><a href = "{{ url_for('delete', id = n[0])}}">Delete Recipe</a></h2></li>
+					<li><h2><a href = "{{ url_for('delete', id = n[7])}}">Delete Recipe</a></h2></li>
 				{% endif %}	
 			</ul>	
 	</article>
@@ -76,7 +76,7 @@
 		<article id = 'ingredientsshowcase'>
 			<div class = 'container'>
 				<h1> Ingredients:</h1>
-				{% set ing = n[3].split('\n') %}	
+				{% set ing = n[5].split('\n') %}	
 				{% for x in ing %}
 				<ul>
 					<li>{{x}}</li>
@@ -88,7 +88,7 @@
 		<article id = 'directionsshowcase'>
 			<div class = 'container'>
 				<h1>Directions:</h1>
-				{% set dir = n[4].split('\n') %}	
+				{% set dir = n[6].split('\n') %}	
 				{% for y in dir %}
 				<ul>
 					<li> {{y}}</li>
@@ -100,14 +100,15 @@
 
 	{% endfor %}
 	
-	<hr>
+		<div class = 'commentheader'>
+			<h1>Comments:</h1>	
+		</div>
 	{% if session['username'] %}
 		<article id = 'commentbox' >
 			<div class = 'container'>
 				<form method="POST", action = {{id}}>
-					<label>Comments:</label><br>
-					<textarea name = 'comments' placeholder="Enter comments"></textarea> 
-					<br>
+					<textarea name = 'comments' placeholder="Leave a comment..."></textarea> <br>
+
 					<button type="submit">Submit</button>
 				</form>
 			</div>
@@ -116,21 +117,15 @@
 
 	{% endif %}
 	<section id = 'commentsection'>
-		<div class = 'commentheader'>
-			<div class = 'container'>
-				<h1>Comments</h1>
-			</div>
-		</div>
-		{% for n in comments %}
+		{% for m in usercomment %}
 		<div class = 'comments'>
 			<div class ='container'>
-				
-				<h3> {{n[1]}}</h3>
-				<p>{{n[0]}}</p>
-				
+					<h3> {{m[0]}} {{m[1]}}</h3>
+					<p>{{m[2]}}</p>
+				</div>
 			</div>	
+			{% endfor %}	
 		</div>
-		{% endfor %}
 	</section>
 
 	
@@ -138,7 +133,5 @@
 </section>
 
 {% endblock %}
-
-
 
 

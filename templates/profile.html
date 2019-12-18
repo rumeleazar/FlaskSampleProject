@@ -3,59 +3,54 @@
 {% block content %} 
 
 
-<section id = 'showcase'>
-	<!-- <div class = 'container'>
-		{% for name in firstname %}		
-			<h1> Welcome {{name[0]}}<h1>
-		{% endfor %}
-	</div> -->
-
+<section>
 	<header class = 'half-black'>
-		<div class="container">
-			<nav>
-				<ul>
-				{% if not session['username'] %}
-					<li><a href = {{ url_for("home")}}>Home</a></li>
-				{% else %}
-					<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-					<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
-											
-				{% endif %}	
-					<li><a href = "#">About</a></li>
-					<li><a href = "#">Contact us</a></li>
-				{% if not session['username'] %}
-					<li><a href = {{ url_for("register")}} >Register</a></li>
-					<li><a href = {{ url_for("login")}}>Sign in</a></li>
-				{% else %}
-					<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
-				{% endif %}	
-				</ul>
-			</nav>
-		</div>
-	</header>	
-	
-	<div class='container'>
-		<h1> COOKER </h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua.</p>
-		</div>
+			<div class="container">
+				<nav>	
+					<h2>RecipeShare</h2>
+					<ul>
+						{% if not session['username'] %}
+								<li><a href = {{ url_for("register")}} >Register</a></li>
+								<li><a href = {{ url_for("login")}}>Sign in</a></li>
+						{% else %}
+								<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+						{% endif %}	
+										
+								<li><a href = "#">About</a></li>
 
-	<div class = 'searchbar'>
-		<input type="text" name="search" placeholder="Search for recipes">
-	</div>	
+						{% if not session['username'] %}
+								<li><a href = {{ url_for("home")}}>Home</a></li>
+						{% else %}
+								<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+								<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+						{% endif %}	
+					</ul>
+				</nav>
+			</div>
+	</header>	
+	<section id = 'showcase'>
+		<div class='container'>
+			<h3> Find a Recipe </h3>				
+		</div>
+		<div class = 'searchbar'>
+			<input type="text" name="search" placeholder="Search for recipes">
+		</div>		
+	</section>
 
 </section>
 
 <section id = 'profilebox'>
 
 	<header class = 'container'>
-	{% if username %}
-		<h1>{{username}} 's profile</h1>
-	{% endif %}
+		<div class = 'headername'>
+			{% for name in UsersName %}
+				<h2>{{name[0]}} {{name[1]}}</h2><br><br>
+			{% endfor %}
+		</div>
 	</header>
 		<section>
 			<div class = 'container'>
-				<h1>{{username}}'s recipes</h1>
+				<h1>Created Recipes</h1>
 			</div>
 			<div id = 'profilerecipecontainer'>
 				<div class = 'container'>
@@ -76,7 +71,7 @@
 				</div>	
 			</div>
 			<div class = 'container'>
-				<h1>{{username}}'s reading list</h1>
+				<h1>Reading List</h1>
 			</div>
 			<div id ='profilerecipecontainer'>
 				<div class = 'row'>

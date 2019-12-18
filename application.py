@@ -70,26 +70,25 @@ def profile(username):
     with sqlite3.connect('database.db') as conn:
         user = session['username']
         # Showing users own created recipe
-        curuser = conn.cursor()
-        curuser.execute("SELECT * FROM recipe WHERE author = ?", [user])
-        UsersRecipe = curuser.fetchall()
+        currecipe = conn.cursor()
+        currecipe.execute("SELECT * FROM recipe WHERE author = ?", [user])
+        UsersRecipe = currecipe.fetchall()
 
-    # Showing users reading list
+        # Get the Name of the USER
+        curuser = conn.cursor()
+        curuser.execute("SELECT firstname,lastname FROM user WHERE username = ?",[user])
+        UsersName = curuser.fetchall()
+
+
+        # Showing users reading list
         curlist = conn.cursor()
         curlist.execute(
             "SELECT recipe.id, recipe.dishname, recipe.description, recipe.ingredients, recipe.directions, recipe.imagename, recipe.author FROM recipe INNER JOIN readinglist ON recipe.dishname = readinglist.dishname WHERE user = ?", [user])
         UsersReadingList = curlist.fetchall()
 
-        return render_template('profile.html', UsersRecipe=UsersRecipe, UsersReadingList=UsersReadingList, username=user)
+        return render_template('profile.html', UsersRecipe=UsersRecipe, UsersReadingList=UsersReadingList, username=user, UsersName = UsersName)
 
-    # USERLIST CAN'T USE THE FETCHALL FUNCTION SINCE IT WILL GIVE THE PROGRAM MULTIPLE ROWS AND THE RECIPENAME AND RECIPEAUTHOR CANNOT RETURN 2 VALUES
-    # ANOTHER PROBLEM: RECIPENAME REFERENCE BEFORE ASSIGNMENT
 
-        # NOTE: PROBLEM SOLVED USING SELECT recipe.dishname, recipe.description, recipe.ingredients, recipe.directions, recipe.imagename, recipe.author FROM recipe INNER JOIN readinglist ON recipe.dishname = readinglist.dishname;
-
-    # NEW PROBLEM: READING LIST IS ALL SHOWN ON EVERY ACCOUNT(EXAMPLE: USER 1'S READING LIST IS ALSO SAVE IN USER 2'S READING LIST)
-
-        # NOTE: PROBLEM SOLVED BY ADDING WHERE ON THE SQL EXECUTE
 
 
 # ROUTE FOR THE REGISTER TAB
@@ -118,7 +117,10 @@ def register():
         return render_template('register.html')
 
 
-# ROUTE FOR THE MODAL LOGIN
+        #MAKE AN IF STATEMENTS THAT WILL TELL THE USER IF THE USERNAME IS ALREADY TAKEN
+
+
+# ROUTE FOR THE LOGIN
 @app.route('/login', methods=['POST', 'GET'])
 def login():
 
@@ -155,8 +157,6 @@ def logout():
 # ROUTE FOR THE ADD RECIPE FUNCTION
 @app.route('/addrecipe', methods=['POST', 'GET'])
 def addrecipe():
-
-
     #PROBLEM WITH THE INGREDIENTS SPLIT
     with sqlite3.connect('database.db') as conn:
         if request.method == 'POST':
@@ -203,14 +203,14 @@ def addrecipe():
 @app.route('/')
 def article(id):
 
-    with sqlite3.connect('database.db') as conn:
+    with sqlite3.connect('database.db') as conn:    
         cur = conn.cursor()
-        cur.execute("SELECT comments, user FROM comments WHERE id = ?", [id])
-        comments = cur.fetchall()
+        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.ingredients, recipe.directions,recipe.id,recipe.author FROM recipe INNER JOIN user ON recipe.author = user.username WHERE recipe.id = ?", [id])
+        recipe = cur.fetchall()
 
         cur = conn.cursor()
-        cur.execute("SELECT * FROM recipe WHERE id = ?", [id])
-        recipe = cur.fetchall()
+        cur.execute("SELECT user.firstname, user.lastname, comments.comments FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+        usercomment = cur.fetchall()
 
         if request.method == 'POST':
             if session['username']:
@@ -221,16 +221,14 @@ def article(id):
                     "INSERT INTO comments(comments, id, user) VALUES(?,?,?)", (comment, id, user))
                 conn.commit()
                 cur.close()
+
                 cur = conn.cursor()
-                cur.execute(
-                    "SELECT comments, user FROM comments WHERE id = ?", [id])
-                comments = cur.fetchall()
+                cur.execute("SELECT user.firstname, user.lastname, comments.comments FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+                usercomment = cur.fetchall()
+                
+                return render_template('article.html', recipe=recipe, usercomment = usercomment)
 
-                return render_template('article.html', comments=comments, recipe=recipe)
-
-        return render_template('article.html', recipe=recipe, comments=comments)
-
-    return render_template('article.html', recipe=recipe, comments=comments)
+    return render_template('article.html', recipe=recipe, usercomment = usercomment)
 
 
     
@@ -243,7 +241,7 @@ def update(id):
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
         cur.execute("SELECT * FROM recipe WHERE id = ?", [id])
-        recipe = cur.fetchone()
+        recipe = cur.fetchall()
 
         if request.method == 'POST':
             dishname = request.form['dishname']
@@ -274,7 +272,7 @@ def update(id):
             recipe = cur.fetchall()
             return redirect(url_for('article', recipe=recipe, id=id))
 
-        return render_template('update.html')
+        return render_template('update.html', recipe = recipe)
 
 # DELETE FUNCTIONALITY OF THE WEBSITE
 @app.route('/article/<id>/delete', methods=['POST', 'GET'])

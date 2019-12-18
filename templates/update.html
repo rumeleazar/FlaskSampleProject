@@ -11,87 +11,75 @@
 {% endwith %}
 
 
-<section id = 'showcase'>
-				<!-- <div class = 'container'>
-					{% for name in firstname %}		
-						<h1> Welcome {{name[0]}}<h1>
-					{% endfor %}
-				</div> -->
-
-	<header class = 'half-black'>
+<section>
+	<header class = 'loginnav'>
 		<div class="container">
-			<nav>
+			<nav>	
+				<h2>RecipeShare</h2>
 				<ul>
-				{% if not session['username'] %}
-					<li><a href = {{ url_for("home")}}>Home</a></li>
-				{% else %}
-					<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-					<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
-											
-				{% endif %}	
-					<li><a href = "#">About</a></li>
-					<li><a href = "#">Contact us</a></li>
 					{% if not session['username'] %}
-					<li><a href = {{ url_for("register")}} >Register</a></li>
-					<li><a href = {{ url_for("login")}}>Sign in</a></li>
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
 					{% else %}
-					<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
-				{% endif %}	
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+					{% endif %}	
+									
+							<li><a href = "#">About</a></li>
+
+					{% if not session['username'] %}
+							<li><a href = {{ url_for("home")}}>Home</a></li>
+					{% else %}
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+					{% endif %}	
 				</ul>
 			</nav>
 		</div>
-	</header>	
+	</header>
 
-		<div class='container'>
-			<h1> RECIPE</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+	<article id = 'updatesection'>
+		<div class ='updateblock'>
+			<div class = 'formcontainer2'>
+					{% for n in recipe %}
+					<img src = "{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" ><br>
+					{% endfor %}		
+			</div>
+			<div class = 'formcontainer'>
+				<form method = "POST" action = "update" enctype="multipart/form-data">
+					<div class="container">
+					    <label>Dishname:</label><br>
+					    <input type="text" class="container" name = "dishname">
+		  			</div>
+				  	<div class="container">
+					    <label >Description:</label><br>
+					    <textarea class = 'container' name = 'description'></textarea> 
+				  	</div>
+				  	<div class="container">
+					    <label >Ingredients:</label><br>
+					    <textarea class = 'container' name = 'ingredients' placeholder="Enter ingredients in list form"></textarea>
+				  	</div>
+				  	<div class="container">
+					    <label >Directions:</label><br>
+					    <textarea class = 'container' name = 'directions' placeholder="Enter directions in list form"></textarea>
+				  	</div>
+					<div clas = 'container'> 
+						<label>Main Image:</label>
+				  		<input type="file" name="image">
+				  	</div>
+				  	<div class="container">
+				  		<div class ='updatebuttons'>
+				  			<button type="submit">Update</button>
+				  			{% for n in recipe %}
+				  				<a href = "{{ url_for('article', id = n[0])}}"><input type="button" name="cancel" value= 'Cancel'></a>
+				  			{% endfor %}
+				  		</div>
+				  	</div>
+				</form>
+			</div>
 		</div>
-
-		<div class = 'searchbar'>
-			<input type="text" name="search" placeholder="Search for recipes">
-		</div>	
-
+	</article>
 </section>
-
-
-	<div class ="container">
-
-		<form method = "POST" action = "update" enctype="multipart/form-data">
-
-			<div class="container">
-			    <label>Dishname</label><br>
-			    <input type="text" class="container"  placeholder="Enter dishname" name = "dishname">
-	
-  			</div>
-  			<br>
-		  	<div class="container">
-			    <label >Description</label><br>
-			    <textarea class = 'container' name = 'description' placeholder="Enter description of the dish"></textarea> 
-		  	</div>
-		  	<div class="container">
-			    <label >Ingredients</label><br>
-			    <textarea class = 'container' name = 'ingredients' placeholder="Enter ingredients in list form"></textarea>
-	
-		  	</div>
-		  	<div class="container">
-			    <label >Directions</label><br>
-			    <textarea class = 'container' name = 'directions' placeholder="Enter directions in list form"></textarea>
-		  	</div>
-
-		  	<div>
-		  		<label> Select Image</label>
-		  		<input type="file" name="image">
-
-		  	</div>
-
-		  
-		  	<div class="container">
-		  		<button type="submit">Submit</button>
-		  	</div>
-		
-		</form>
-	
-	</div>
 
 {% endblock %}

@@ -2,7 +2,17 @@
 
 {% block content %} 
 
-<header class = 'loginnav'>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages%}
+			{{message}}
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+
+<section>
+	<header class = 'loginnav'>
 		<div class="container">
 			<nav>	
 				<h2>RecipeShare</h2>
@@ -25,36 +35,47 @@
 				</ul>
 			</nav>
 		</div>
-</header>	
+	</header>
 
-	<div class ="container">
-		<form method = "POST" action = "addrecipe" enctype="multipart/form-data">
-			<div class="container">
-			    <label>Dishname</label><br>
-			    <input type="text" class="container"  placeholder="Enter dishname" name = "dishname">
-  			</div>
-  			<br>
-		  	<div class="container">
-			    <label >Description</label><br>
-			    <textarea class = 'container' name = 'description' placeholder="Enter description of the dish"></textarea> 
-		  	</div>
-		  <!-- 	<div id = "editor"> -->
-			  	<div class="container">
-				    <label >Ingredients</label><br>
-				    <textarea class = 'container' name = 'ingredients' placeholder="Put each ingredient on its own line (Do not create a new line after the last ingredient)"></textarea>
-			  	</div>
-		  	<!-- </div> -->
-		  	<div class="container">
-			    <label >Directions</label><br>
-			    <textarea class = 'container' name = 'directions' placeholder="Put each step on its own line"></textarea>
-		  	</div>
-		  	<div>
-		  		<label> Select Image</label>
-		  		<input type="file" name="image">
-		  	</div>
-		  	<div class="container">
-		  		<button type="submit">Submit</button>
-		  	</div>
-		</form>
-	</div>
+
+
+	<article id = 'addrecipesection'>
+		<div class ='addrecipeblock'>
+			<div class = 'formcontainer2'>
+					<img src = "/static/images/recipeimages/default.gif" ><br>	
+			</div>
+			<div class = 'formcontainer'>
+				<form method = "POST" action = "addrecipe" enctype="multipart/form-data">
+					<div class="container">
+					    <label>Dishname:</label><br>
+					    <input type="text" class="container" name = "dishname">
+		  			</div>
+				  	<div class="container">
+					    <label >Description:</label><br>
+					    <textarea class = 'container' name = 'description'></textarea> 
+				  	</div>
+				  	<div class="container">
+					    <label >Ingredients:</label><br>
+					    <textarea class = 'container' name = 'ingredients' placeholder="Enter ingredients in list form"></textarea>
+				  	</div>
+				  	<div class="container">
+					    <label >Directions:</label><br>
+					    <textarea class = 'container' name = 'directions' placeholder="Enter directions in list form"></textarea>
+				  	</div>
+					<div class ='container'> 
+						<label>Main Image:</label>
+				  		<input type="file" name="image">
+				  	</div>
+				  	<div class="container">
+				  		<div class ='createbuttons'>
+				  			<button type="submit">Create</button>
+				  			<a href = 'index.html'><input type="button" name="cancel" value= 'Cancel'></a>
+				  		</div>
+				  	</div>
+				</form>
+			</div>
+		</div>
+	</article>
+</section>
+
 {% endblock %}

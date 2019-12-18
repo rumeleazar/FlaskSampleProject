@@ -18,10 +18,7 @@ body	{
 	margin: 0;
 	padding: 0;
 	overflow: auto;
-
-
 }
-
 
 footer 	{
 	width: 100%;
@@ -43,16 +40,13 @@ footer p {
 
 }
 
-
 #fullbodycontainer {
 	min-height: 100%;
-
 }
 
 .main {
 	overflow: auto;
 	padding-bottom: 150px; 
-
 
 }
 .container{	
@@ -60,30 +54,24 @@ footer p {
 	margin: 0 auto;
 	overflow: hidden;
 	padding: 0;
-
 }
-
 .container::placeholder {
 	color:#2F4F4F;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
-
 a {
 	text-decoration: none;
 }
-
 a:hover {
 	color:brown;
-
 }
-
 img {
 	max-width: 100%;
 	max-height: 100%;
 }
 
 
-/* Article Page */
+/* MAIN PAGE (INDEX.HTML) */
 #articlebox {
 
 	width: 80%;
@@ -96,9 +84,6 @@ img {
 	height: auto;
 	display: flex;
 	flex-direction: column;
-	
-	
-
 }
 
 #articlecontainer{
@@ -186,20 +171,17 @@ img {
 
 }
 
-
 .row{
 	padding: 0 ;
 	position: relative;
 	margin: 0;
 	padding: 0;	
 	display:inline-block;
-
 }
 
 .row h1 {
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	font-size: 60px;
-
 
 }
 
@@ -214,7 +196,7 @@ img {
 	display: inline-block;
 	position: relative;
 
-	
+
 }
 
 
@@ -223,7 +205,6 @@ img {
 	margin-top: 20px;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
-
 
 .column p {
 	font-size: 12px;
@@ -267,7 +248,7 @@ img {
 
 
 
-/*Headers */
+/*Headers(ALL HTML) */
 header {
 	height: auto;
 	min-height: 80px;
@@ -289,12 +270,6 @@ header {
 	font-color: white;
 }
 
-
-
-
-
-
-
 nav li{
 	float:right;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
@@ -302,8 +277,7 @@ nav li{
 	text-transform: uppercase;
 	position: relative;
 	list-style-type: none;
-	margin: auto;
-		
+	margin: auto;		
 }
 
 nav h2 {
@@ -315,7 +289,6 @@ nav h2 {
   	margin: auto 20px;
   	padding-top: 5px;
 }
-
 
 nav a{
 	font-weight: bold;
@@ -334,406 +307,7 @@ nav a{
 
 
 
-
-
-/*login form */
-
-.loginpage {
-	background: url('/static/images/login.jpg') no-repeat center fixed;
-    background-size: cover;
-}
-
-
-.logincontainer {
-	 width: 400px;
-	 margin: 8% auto;
-	 height: 561px;
-	 background: rgba(0,0,0,0.6);
-	 align-content: center;
-
-}
-
-.logincontainer button {
-	width: 70%;
-	padding: 0;
-	margin: 5% auto;
-	height: 30px;
-	cursor: pointer;
-	border-radius: 25px;
-	border: none;
-	outline: none;
-	background-color:#FF7F50;
-
-}
-
-.logincontainer input {
-	width: 70%;
-	margin: 5% auto;
-	height: 30px;
-	border: none;
-	border-bottom: 1px solid white;
-	background:transparent;
-	outline: none;
-	font-size: 15px;
-	color: white;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-}
-
-.logincontainer label {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-	float;left: 
-	margin:0;
-	padding: 0;
-}
-
-
-.formsbox {
-	transform: translate(15%, 50%);
-	color:white;
-
-}
-
-
-
-/*SHOWCASE */
-
-#showcase{
-	background-image: url('/static/images/food2.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	text-align: center;
-	margin: 0 auto;
-	min-height: 450px;
-	max-height: 500px;
-	border: none;
-	text-shadow: 2px 2px black;
-	width: 80%;
-	border-radius: 40px;
-	box-shadow: 0 20px 40px;
-
-
-}
- #showcase h3{
- 	font-size: 60px;
- 	margin-bottom: 10px;
- 	position: relative;
-	margin-top: 120px;
-  	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
-  	color: 	#8B4513;
-  	text-shadow: 4px 4px 3px black; 
-}
- 	
-
- #showcase p{
- 	font-size: 15px;
- 	color: #F0F8FF;
- 	margin-top: 40px;
- 	text-shadow: 4px 4px 3px black; 
-
- 
- }
-
-.searchbar input[type=text] {
-
-	height: 30px;
-	width: 40%;
-	padding: 5px;
-	margin:0;
-	border-radius: 20px;
-	font-size: 20px;
-}
-
-.searchbar ::placeholder {
-	color:#2F4F4F;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-}
-
-
-
-/*BANNER */
-
-#banner {
-	text-align: center;
-	position: relative;
-	margin: 0;
-	padding:0;
-
-}
-
-#banner h1{
-	font-size: 50px;
-	font-weight: bold;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-	padding-bottom: 0;
-	margin-bottom: 0;
-}
-
-#banner p{
-	font-size: 23px;
-	font-style: oblique;
-	margin-top: 10px;
-	padding-top: 0;
-}
-
-
-
-/*Article Section*/
-
-#recipeshowcase {
-
-	width: 70%;
-	margin: auto;
-	overflow: auto;
-	position: relative;
-	font-size: 13px;
-	overflow: hidden;
-	min-height: 1000px;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-	
-}
-
-.links  {
-	position: relative;
-	margin: 0;
-	list-style: none;
-	padding: 0;
-	text-align: center;
-	width: 100%;
-	font-size: 22px;
-	border-top: 1px solid #ead1ae;
-	border-bottom:1px solid #ead1ae;
-
-	
-	
-}
-.links li {
-	list-style: none;
-	display: inline-block;
-	margin: auto 40px;
-}
-
-.links a{
-	color: #696969;
-	text-decoration: none;
-}
-
-.links a:hover {
-	color:brown;
-}
-
-
-#dishnamesummarygroup {
-	width: 100%;
-	display:block;
-	padding: 0;
-	position: relative;
-	text-align: center;
-	justify-content: center;
-
-}
-
-#pictureshowcase {
-	width: 95%;
-	padding: 0;
-	position: relative;
-	align-items: center;
-	object-fit: fill;
-	margin: 10px auto;
-	
-	
-}
-
-#pictureshowcase img {
-	min-height: 300px;
-	min-width: 300px;
-	width: 100%;
-	height: auto;
-	align-self: center;
-	position: relative;
-	margin: 0;
-	border:5px solid white;
-}
-
-#pictureshowcase p {
-	margin: 0;
-	padding-top: 0;
-	font-size: 20px;
-	width: 100%;
-
-}
-
-#dishnameshowcase {
-	position: relative;
-	padding: 0;
-	width: 100%;
-	text-align: center;
-	position: relative;
-	height: auto;
-	margin-top: 40px;
-	border-top: 1px solid #ead1ae;
-	border-bottom:1px solid #ead1ae;
-
-	
-}
-
-#dishnameshowcase h2 {
-	padding: 0;
-	margin: 0;
-	font-weight: bold;
-	padding-bottom: 0;
-	margin-bottom: 0;
-	font-size: 70px;
-	text-align: center;
-
-}
-
-
-#dishnameshowcase h4 {
-	margin: 0;
-	margin-top: 3px;
-	padding-top: 0;
-	font-size: 28px;
-	width: 100%;
-	text-align: center;
-
-}
-
-
-#dishnamesummarygroup2 {
-	width: 100%;
-	display:inline-flex;
-	padding: auto;
-	position: relative;
-	justify-content: center;
-	margin-top: 50px;
-	border-bottom:1px solid #ead1ae;
-	padding-bottom: 40px;
-
-}
-
-
-
-#ingredientsshowcase {
-	width: 45%;
-	display: block;
-	margin: 0 0 0 5%;
-	position: relative;
-	padding: auto;
-	font-size: 25px;
-
-
-}
-
-#ingredientsshowcase h1{
-	width: 85%;
-	text-align: center;
-	margin: auto;
-	font-size: 50px;
-
-
-}
-
-
-#ingredientsshowcase li{
-	margin: auto;
-	padding: 0 0 5px 30px;
-	list-style: none;
-	background-image: url('/static/images/ingredients.png');
-	background-repeat: no-repeat;
-	background-position: left ;
-	background-size: 30px;
-	text-align: center;
-	width: auto;
-
-
-}
-#directionsshowcase {
-	width:45%;
-	display: block;
-	margin:  0 5% 0 0;
-	position: relative;
-	font-size: 25px;
-	padding: auto;
-	text-align: center;
-	
-}
-
-#directionsshowcase h1{
-	width: 85%;
-	text-align: center;
-	margin: auto;
-	font-size: 50px;
-
-
-}
-
-
-#directionsshowcase li{
- 	margin: auto;
-	padding: 0 0 5px 70px;
-	list-style: none;
-	background-image: url('/static/images/directions.png');
-	background-repeat: no-repeat;
-	background-position: left;
-	background-size: 30px;
-	text-align: justify;
-	width: auto;
-
-	
-}
-
-
-/*Comments*/
-
-#commentbox {
-	position: relative;
-	margin:0;
-	padding: 0;
-	display: block;
-	font-size: 25px;
-	text-align: center;
-
-}
-
-#commentbox textarea {
-	width: 90%;
-	height: 70px;
-}
-
-#commentsection {
-	position:relative;
-	margin: 0;
-	padding:0;
-	height: 100%;
-	min-height: 500px;
-	font-size: 40px;
-
-	
-}
-
-
-.commentheader {
-	font-size: 150%;
-	font-weight: bold;
-	position: relative;
-	padding: 0px;
-	margin:0;
-	text-align: center;
-
-}
-
-.comments {
-	margin:0;
-	padding: 0;
-	position: relative;
-	display: block;
-}
-
-/*Register Section*/
+/*Register Section (REGISTER.HTML)*/
 
 
 .registrationpage {
@@ -810,13 +384,253 @@ nav a{
 
 
 
+/*login form(LOGIN.HTML) */
+
+.loginpage {
+	background: url('/static/images/login.jpg') no-repeat center fixed;
+    background-size: cover;
+}
 
 
-/*Profile Section*/
+.logincontainer {
+	 width: 400px;
+	 margin: 8% auto;
+	 height: 561px;
+	 background: rgba(0,0,0,0.6);
+	 align-content: center;
 
-#profilebox {
+}
+
+.logincontainer button {
+	width: 70%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	background-color:#FF7F50;
+
+}
+
+.logincontainer input {
+	width: 70%;
+	margin: 5% auto;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid white;
+	background:transparent;
+	outline: none;
+	font-size: 15px;
+	color: white;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+.logincontainer label {
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	float;left: 
+	margin:0;
+	padding: 0;
+}
+
+.formsbox {
+	transform: translate(15%, 50%);
+	color:white;
+
+}
+
+
+
+/*CREATE RECIPE SECTION (ADDRECIPE.HTML)*/
+
+#addrecipesection {
 	width: 80%;
+	position: relative;
+	margin:auto;
+	height: 100%;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+}
+
+.addrecipeblock {
+	width: 95%;
+	margin:  5% auto;
+	height: 80%;
+
+}
+
+
+.formcontainer {
+	width: 63%;
+	margin: 0;
+	height: auto;
+	display: inline-block;
+
+}
+
+.formcontainer2 {
+
+	width: 35%;
+	margin: 0 ;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+.formcontainer2 img {
+	height: 100%;
+	width: 100%;
+	border: 4px solid white;
+
+}
+
+.formcontainer input[type=text] {
+	height: 40px;
+	width: 90%;
+}
+
+.formcontainer textarea {
+	width: 90%;
+	height: 70px;
+	overflow: auto;
+}
+
+.formcontainer textarea[name = ingredients] {
+	width: 90%;
+	height: 200px;
+}
+.formcontainer textarea[name = directions] {
+	width: 90%;
+	height: 200px;
+}
+
+.formcontainer textarea::placeholder {
+	font-style: italic;
+}
+
+.createbuttons button {
+	width: 40%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color:#FF7F50;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+
+}
+
+.createbuttons input[type=button] {
+	width: 40%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: grey;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+}
+
+
+
+
+
+/*SHOWCASE AREA (INDEX.HTML, PROFILE.HTML) */
+
+#showcase{
+	background-image: url('/static/images/food2.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	margin: 0 auto;
+	min-height: 450px;
+	max-height: 500px;
+	border: none;
+	text-shadow: 2px 2px black;
+	width: 80%;
+	border-radius: 40px;
+	box-shadow: 0 20px 40px;
+
+
+}
+ #showcase h3{
+ 	font-size: 60px;
+ 	margin-bottom: 10px;
+ 	position: relative;
+	margin-top: 120px;
+  	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  	color: 	#8B4513;
+  	text-shadow: 4px 4px 3px black; 
+}
+ 	
+
+ #showcase p{
+ 	font-size: 15px;
+ 	color: #F0F8FF;
+ 	margin-top: 40px;
+ 	text-shadow: 4px 4px 3px black; 
+
+ 
+ }
+
+.searchbar input[type=text] {
+
+	height: 30px;
+	width: 40%;
+	padding: 5px;
+	margin:0;
+	border-radius: 20px;
+	font-size: 20px;
+}
+
+.searchbar ::placeholder {
+	color:#2F4F4F;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+
+
+/*BANNER (INDEX.HTML, PROFILE.HTML) */
+
+#banner {
+	text-align: center;
+	position: relative;
+	margin: 0;
+	padding:0;
+
+}
+
+#banner h1{
+	font-size: 50px;
+	font-weight: bold;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#banner p{
+	font-size: 23px;
+	font-style: oblique;
+	margin-top: 10px;
+	padding-top: 0;
+}
+
+
+
+/*SPECIFIC RECIPE ARTICLE PAGE (ARTICLE.HTML) */
+
+#recipeshowcase {
+
+	width: 70%;
 	margin: auto;
+	overflow: auto;
 	position: relative;
 	font-size: 13px;
 	overflow: hidden;
@@ -824,7 +638,323 @@ nav a{
 	height: auto;
 	display: flex;
 	flex-direction: column;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	
+}
 
+.links  {
+	position: relative;
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+	border-top: 1px solid #ead1ae;
+	border-bottom:1px solid #ead1ae;
+
+	
+	
+}
+.links li {
+	list-style: none;
+	display: inline-block;
+	margin: auto 40px;
+}
+
+.links a{
+	color: #696969;
+	text-decoration: none;
+}
+
+.links a:hover {
+	color:brown;
+}
+
+
+#dishnamesummarygroup {
+	width: 100%;
+	display:block;
+	padding: 0;
+	position: relative;
+	text-align: center;
+	justify-content: center;
+
+}
+
+#pictureshowcase {
+	width: 95%;
+	padding: 0;
+	position: relative;
+	align-items: center;
+	object-fit: fill;
+	margin: 10px auto;
+	
+	
+}
+
+#pictureshowcase img {
+	min-height: 300px;
+	min-width: 300px;
+	width: 100%;
+	height: auto;
+	align-self: center;
+	position: relative;
+	margin: 0;
+	border:5px solid white;
+	max-height: 700px;
+}
+
+#pictureshowcase p {
+	margin: 0;
+	padding-top: 0;
+	font-size: 20px;
+	width: 100%;
+
+}
+
+#dishnameshowcase {
+	position: relative;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	height: auto;
+	margin-top: 40px;
+	border-top: 1px solid #ead1ae;
+	border-bottom:1px solid #ead1ae;
+
+	
+}
+
+#dishnameshowcase h2 {
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	font-size: 70px;
+	text-align: center;
+
+}
+
+
+#dishnameshowcase h4 {
+	margin: 0;
+	margin-top: 3px;
+	padding-top: 0;
+	font-size: 28px;
+	width: 100%;
+	text-align: center;
+
+}
+
+
+#dishnamesummarygroup2 {
+	width: 100%;
+	display:inline-flex;
+	padding: auto;
+	position: relative;
+	justify-content: center;
+	margin-top: 50px;
+	border-bottom:1px solid #ead1ae;
+	padding-bottom: 40px;
+
+}
+
+
+
+#ingredientsshowcase {
+	width: 45%;
+	display: block;
+	margin: 0 0 0 5%;
+	position: relative;
+	padding: auto;
+	font-size: 22px;
+
+
+}
+
+#ingredientsshowcase h1{
+	width: 85%;
+	text-align: center;
+	margin: auto;
+	font-size: 50px;
+}
+
+
+#ingredientsshowcase li{
+	margin: auto;
+	padding: 0 0 5px 30px;
+	list-style: none;
+	background-image: url('/static/images/ingredients.png');
+	background-repeat: no-repeat;
+	background-position: left ;
+	background-size: 30px;
+	text-align: center;
+	width: auto;
+
+
+}
+#directionsshowcase {
+	width:45%;
+	display: block;
+	margin:  0 5% 0 0;
+	position: relative;
+	font-size: 20px;
+	padding: auto;
+	text-align: center;
+	
+}
+
+#directionsshowcase h1{
+	width: 85%;
+	text-align: center;
+	margin: auto;
+	font-size: 50px;
+
+
+}
+
+
+#directionsshowcase li{
+ 	margin: auto;
+	padding: 0 0 5px 70px;
+	list-style: none;
+	background-image: url('/static/images/directions.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 30px;
+	text-align: justify;
+	width: auto;
+
+	
+}
+
+
+/*COMMENT SECTION (ARTICLE.HTML)*/
+
+#commentbox {
+	position: relative;
+	margin:0;
+	padding-bottom: 20px;
+	display: block;
+	font-size: 25px;
+	text-align: center;
+/*	background-color: #eeeec3;*/
+
+
+}
+
+#commentbox button {
+	float: right;
+	width: 20%;
+	padding: 0;
+	margin:  auto;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color:#FF7F50;
+	font-style: italic;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	font-weight: bold;
+
+}
+
+
+#commentbox textarea {
+	width: 99%;
+	height: 150px;
+}
+
+#commentbox textarea::placeholder {
+	font-style: italic;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	color: 	#C0C0C0;
+	font-size: 30px;
+	margin-left:20px;
+}
+
+#commentsection {
+	position:relative;
+	margin: 0;
+	padding:0;
+	height: 100%;
+	min-height: 500px;
+	font-size: 40px;
+
+}
+
+
+.commentheader {
+	font-size: 40px;
+	font-weight: bold;
+	position: relative;
+	padding-left:20%;
+	margin:0;
+	text-align: left;
+	width: 100%;
+	align-self: center;
+	height: 120px;
+/*	background-color: #eeeec3;*/
+
+
+}
+
+.comments {
+	margin:0;
+	margin-top:50px;
+	padding: 0;
+	position: relative;
+	display: block; 
+	font-size: 24px;
+	border-top:1px solid #ead1ae;
+
+}
+
+
+
+/*Profile Section (PROFILE.HTML)*/
+
+#profilebox {
+	width: 80%;
+	margin: 5% auto;
+	position: relative;
+	font-size: 13px;
+	overflow: hidden;
+	min-height: 1000px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+}
+
+#profilebox h1{ 
+	border-top: 1px solid #ead1ae;
+	border-bottom:1px solid #ead1ae;
+	font-size: 60px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+ }
+
+.headername{
+	text-align: center;
+	height: auto;
+}
+
+.headername h2 {
+	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  	text-shadow: 3px 1px 3px black; 
+  	font-size: 90px;
+  	margin: 20px 20px;
+  	padding-top: 5px;
+  	color: 	#8B4513;
+  	height: auto;
+  
 }
 
 #profilerecipecontainer {
@@ -838,11 +968,115 @@ nav a{
 	text-align: center;
 	position: relative;
 	align-items: center;
-	white-space: nowrap;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y: hidden;
-	
 }
+
+
+
+
+/*UPDATE SECTION (UPDATE.HTML)*/
+
+#updatesection {
+	width: 80%;
+	position: relative;
+	margin:auto;
+	height: 100%;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+}
+
+.updateblock {
+	width: 95%;
+	margin:  5% auto;
+	height: 80%;
+
+}
+
+
+.formcontainer {
+	width: 63%;
+	margin: 0;
+	height: auto;
+	display: inline-block;
+
+}
+
+.formcontainer2 {
+
+	width: 35%;
+	margin: 0 ;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+.formcontainer2 img {
+	height: 100%;
+	width: 100%;
+	border: 4px solid white;
+
+}
+
+.formcontainer input[type=text] {
+	height: 40px;
+	width: 90%;
+}
+
+.formcontainer textarea {
+	width: 90%;
+	height: 70px;
+	overflow: auto;
+}
+
+.formcontainer textarea[name = ingredients] {
+	width: 90%;
+	height: 200px;
+}
+.formcontainer textarea[name = directions] {
+	width: 90%;
+	height: 200px;
+}
+
+.formcontainer textarea::placeholder {
+	font-style: italic;
+}
+
+.updatebuttons button {
+	width: 40%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color:#FF7F50;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+
+}
+
+.updatebuttons input[type=button] {
+	width: 40%;
+	padding: 0;
+	margin: 5% auto;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: grey;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+
+
+}
+
+
+
+
+
+
 
 
 
