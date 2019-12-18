@@ -14,7 +14,7 @@ A simple recipe sharing CRUD website using Flask where you can create an account
 5. Run application.py
 6. Enter localhost:5000 in the browser.
 
-### NOTE ### 
+## NOTE ##
 This project is still not finished. There are still some work to do:
 1. The search bar is still not working
 2. Create a functionality where the users can like/heart or rate the recipe
@@ -24,7 +24,7 @@ This project is still not finished. There are still some work to do:
 6. Add the date when the recipe is created
 
 
-#### ADDITIONAL STUFFS TO IMPROVE THE PROJECT ####
+## ADDITIONAL STUFFS TO IMPROVE THE PROJECT ##
 1. Create an API so the recipes can be accessed by other applications/website
 2. Get data from the API of other websites 
 
