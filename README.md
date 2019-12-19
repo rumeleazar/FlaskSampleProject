@@ -16,11 +16,11 @@ A simple recipe sharing CRUD website using Flask where you can create an account
 
 ## NOTES ##
 This project is still not finished. There are still some work to do:
-1. The search bar is still not working
+1. The search bar is still not working (Done)
 2. Create a functionality where the users can like/heart or rate the recipe
-3. Make the ingredients and directions to be a list instead of just plain text ( Done )
-4. Make the website responsive ( Almost Done )
-5. The website design ( Done )
+3. Make the ingredients and directions to be a list instead of just plain text (Done)
+4. Make the website responsive (Almost Done)
+5. The website design (Done)
 6. Add the date when the recipe is created
 
 
