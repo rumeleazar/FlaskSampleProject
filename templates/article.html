@@ -65,7 +65,7 @@
 					<li><h2><a href = "{{ url_for('removefromreadinglist', id = n[7])}}">Remove from reading list</a></h2></li>
 				{% endif %}	
 				{% if session['username'] == n[8] %}
-					<li><h2><a href = "{{ url_for('update', id = n[7])}}">Edit Recipe</a></h2></li>
+					<li><h2><a href = "{{ url_for('update', id = n[7], dishname = n[0])}}">Edit Recipe</a></h2></li>
 
 					<li><h2><a href = "{{ url_for('delete', id = n[7])}}">Delete Recipe</a></h2></li>
 				{% endif %}	

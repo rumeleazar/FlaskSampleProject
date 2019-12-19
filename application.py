@@ -37,14 +37,22 @@ def allowed_file(filename):
 
 
 # ROUTE FOR THE HOME
-@app.route('/')
-@app.route('/<username>')
+@app.route('/' , methods = ['POST', 'GET'])
+@app.route('/<username>', methods = ['POST', 'GET'])
 def home(username=None):
+
+    if request.method == 'POST':
+        recipe = request.form['recipesearch']
+        
+        return search(recipe)
+
+
     # SQLITE3 COMMANDS:
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
         cur.execute("SELECT * FROM recipe")
         recipe = cur.fetchall()
+
 
   # MYSQL COMMANDS:
     # cur = mysql.connection.cursor()
@@ -199,9 +207,10 @@ def addrecipe():
 
 
 # THIS IS THE WHERE YOU CAN CLICK THE RECIPE AND IT WILL REDIRECT YOU TO THE RECIPE DETAILS
-@app.route('/article/<id>', methods=['POST', 'GET'])
+@app.route('/article/<id>/<dishname>', methods=['POST', 'GET'])
 @app.route('/')
-def article(id):
+def article(id,dishname):
+
 
     with sqlite3.connect('database.db') as conn:    
         cur = conn.cursor()
@@ -235,8 +244,8 @@ def article(id):
 
 
 # EDIT FUNCTIONALITY OF THE WEBSITE
-@app.route('/article/<id>/update', methods=['POST', 'GET'])
-def update(id):
+@app.route('/article/<id>/<dishname>/update', methods=['POST', 'GET'])
+def update(id,dishname):
 
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
@@ -331,11 +340,6 @@ def addtoreadinglist(id):
 
         return redirect(url_for('profile', id=id, username=user))
 
-        # NOTE: ADD THAT IF A RECIPE IS ALREADY IN THE READING LIST, DON'T WRITE IT AGAIN ON THE DATABASE
-
-        # PROBLEM: USER CAN ONLY ADD HIS OWN RECIPE TO THE READING LIST
-
-        # PROBLEM IS SOLVED
 
 
 # REMOVE TO READING LIST FUNCTION
@@ -366,6 +370,29 @@ def removefromreadinglist(id):
             return redirect(url_for('profile', id=id, username=user, selectrecipe=selectrecipe))
 
 # PROBLEM: HOW TO ISOLATE THE REMOVE FROM READING LIST BUTTON TO THOSE WHO ARE THE ONLY ONES TO ADD THE RECIPE TO HIS/HER READING LIST
+
+
+@app.route('/search/<recipe>')
+def search(recipe):
+
+    recipe = '%' + recipe + '%'
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM recipe WHERE dishname LIKE ?", [recipe])
+        recipe = cur.fetchall()
+
+        return render_template('search.html', recipe = recipe)
+
+
+
+
+
+
+           
+
+
+
+       
 
 
 if __name__ == '__main__':

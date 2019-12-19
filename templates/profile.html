@@ -57,7 +57,7 @@
 					<div class = 'row'>
 						{% for n in UsersRecipe %}
 							<div class = 'column'>
-								<a href = "{{ url_for('article', id = n[0])}}">
+								<a href = "{{ url_for('article', id = n[0], dishname = n[1])}}">
 								<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
 								<h3> {{n[1]}}</h3>
 								<div class = 'descriptionbox'>
@@ -77,7 +77,7 @@
 				<div class = 'row'>
 					{% for n in UsersReadingList %}
 						<div class = 'column'>
-								<a href = "{{ url_for('article', id = n[0])}}">
+								<a href = "{{ url_for('article', id = n[0], dishname = n[1])}}">
 								<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
 								<h3> {{n[1]}}</h3>
 								<div class = 'descriptionbox'>
