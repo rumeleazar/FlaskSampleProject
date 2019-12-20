@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, session, flash, redirect
 # from flask_mysqldb import MySQL
-from datetime import timedelta
+from datetime import timedelta, date
 import os
 from werkzeug.utils import secure_filename
 import sqlite3
@@ -174,6 +174,8 @@ def addrecipe():
             directions = request.form['directions']
             image = request.files['image']
             author = session['username']
+            dateformat = date.today()
+            datetoday = dateformat.strftime("%B %d, %Y")
 
             if not image:
                 imagename = 'default.gif'
@@ -189,8 +191,8 @@ def addrecipe():
                         app.config['STATIC_FOLDER'], imagename))
 
             cur = conn.cursor()
-            cur.execute("INSERT INTO recipe(dishname,description,ingredients,directions,imagename,author) VALUES(? , ?, ?, ?, ?, ?)",
-                        (dishname, description, ingredients, directions, imagename, author))
+            cur.execute("INSERT INTO recipe(dishname,description,ingredients,directions,imagename,author,datetoday) VALUES(? , ?, ?, ?, ?, ?,?)",
+                        (dishname, description, ingredients, directions, imagename, author, datetoday))
             conn.commit()
             cur = conn.cursor()
             cur.execute("SELECT * FROM recipe")
@@ -214,25 +216,27 @@ def article(id,dishname):
 
     with sqlite3.connect('database.db') as conn:    
         cur = conn.cursor()
-        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.ingredients, recipe.directions,recipe.id,recipe.author FROM recipe INNER JOIN user ON recipe.author = user.username WHERE recipe.id = ?", [id])
+        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.ingredients, recipe.directions,recipe.id,recipe.author,recipe.datetoday FROM recipe INNER JOIN user ON recipe.author = user.username WHERE recipe.id = ?", [id])
         recipe = cur.fetchall()
 
         cur = conn.cursor()
-        cur.execute("SELECT user.firstname, user.lastname, comments.comments FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+        cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
         usercomment = cur.fetchall()
 
         if request.method == 'POST':
             if session['username']:
                 comment = request.form['comments']
                 user = session['username']
+                dateformat = date.today()
+                datetoday = dateformat.strftime("%B %d, %Y")
                 cur = conn.cursor()
                 cur.execute(
-                    "INSERT INTO comments(comments, id, user) VALUES(?,?,?)", (comment, id, user))
+                    "INSERT INTO comments(comments, id, user,datetoday) VALUES(?,?,?,?)", (comment, id, user, datetoday))
                 conn.commit()
                 cur.close()
 
                 cur = conn.cursor()
-                cur.execute("SELECT user.firstname, user.lastname, comments.comments FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+                cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
                 usercomment = cur.fetchall()
                 
                 return render_template('article.html', recipe=recipe, usercomment = usercomment)

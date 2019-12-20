@@ -54,15 +54,9 @@
 	</div>
 	<div id = 'introduction'>
 				<div class = 'introdescription'>
-					<h1> LOREM IPSUM </h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.
-					</p>
+					<h1> SHARING IS CARING </h1>
+					<p>I believe that people would be happier sharing things and being more of a collective rather than working from these neo-liberal ideas of just looking after yourself. People need each other</p> 
+					<h4>- Karin Dreijer Andersson</h4>
 				</div>
 
 				<div class = 'introimage'>
@@ -73,7 +67,14 @@
 	
 	<div id ='articlecontainer'>
 		<div class = 'row'>
-			<h1>What to cook this week?</h1>
+			<h1>Add your specialty to the recipe collection</h1>
+			{% if session['username'] %}
+			<div class ='addrecipebutton'>
+				<a href = 'addrecipe'>
+					<button type="button"><a href = 'addrecipe'> Share your own recipe!</a></button>
+				</a>
+			</div><br><br><br>
+			{% endif %}
 			{% for n in recipe %}
 				<div class = 'column'>
 					<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
@@ -88,14 +89,6 @@
 				</div>	
 			{% endfor %}	
 		</div>	
-		<br><br><br><br>
-		{% if session['username'] %}
-			<div class ='addrecipebutton'>
-				<a href = 'addrecipe'>
-					<button type="button"><a href = 'addrecipe'> Share your own recipe!</a></button>
-				</a>
-			</div>
-		{% endif %}	
 	</div>
 </section>
 
