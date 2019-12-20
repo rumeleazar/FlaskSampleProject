@@ -22,6 +22,7 @@ This project is still not finished. There are still some work to do:
 4. Make the website responsive (Almost Done)
 5. The website design (Done)
 6. Add the date when the recipe is created and on the comments section (Done)
+7. Deploy on free hosting website (Heroku or Pythonanywhere)
 
 
 ## ADDITIONAL STUFFS TO IMPROVE THE PROJECT ##
