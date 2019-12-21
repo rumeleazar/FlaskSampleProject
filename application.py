@@ -8,7 +8,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'MySecretKey'
 app.permanent_session_lifetime = timedelta(hours=2)
-app.config['STATIC_FOLDER'] = '/static/images/recipeimages'   # /Users/rj/Desktop/PythonProjects
+app.config['STATIC_FOLDER'] = 'static/images/recipeimages'   # /Users/rj/Desktop/PythonProjects
 app.config['ALLOWED_EXTENSIONS'] = ['PNG', 'JPG', 'JPEG', 'GIF']
 
  
