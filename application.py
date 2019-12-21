@@ -8,9 +8,10 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'MySecretKey'
 app.permanent_session_lifetime = timedelta(hours=2)
-app.config['STATIC_FOLDER'] = '/Users/rj/Desktop/PythonProjects/static/images/recipeimages'
+app.config['STATIC_FOLDER'] = '/static/images/recipeimages'   # /Users/rj/Desktop/PythonProjects
 app.config['ALLOWED_EXTENSIONS'] = ['PNG', 'JPG', 'JPEG', 'GIF']
 
+ 
 # File extension checking
 
 
@@ -387,16 +388,6 @@ def search(recipe):
 
         return render_template('search.html', recipe = recipe)
 
-
-
-
-
-
-           
-
-
-
-       
 
 
 if __name__ == '__main__':
