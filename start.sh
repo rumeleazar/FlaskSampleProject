@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-source venv/Scripts/activat.bat
+source venv/Scripts/activate
 pip install -r requirements.txt
 
 python flaskdatabase.py
