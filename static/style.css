@@ -402,7 +402,7 @@ nav a{
 }
 
 
-::placeholder {
+.registerform input::placeholder {
  	color:white;
 
 }

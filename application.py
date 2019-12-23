@@ -4,6 +4,8 @@ from datetime import timedelta, date
 import os
 from werkzeug.utils import secure_filename
 import sqlite3
+import json
+import requests
 
 app = Flask(__name__)
 app.secret_key = 'MySecretKey'
@@ -42,6 +44,18 @@ def allowed_file(filename):
 @app.route('/<username>', methods = ['POST', 'GET'])
 def home(username=None):
 
+    #Random Quote Simulator
+    r = requests.get('http://quotes.rest/qod.json')
+    content = r.text
+    content = json.loads(content)
+    content = content["contents"]
+    content = content["quotes"]
+    for x in content:
+        quote = x["quote"]
+        author = x["author"]
+
+
+
     if request.method == 'POST':
         recipe = request.form['recipesearch']
         
@@ -67,9 +81,9 @@ def home(username=None):
             "SELECT firstname FROM user WHERE username = ?", [username])
         name = cur.fetchall()
 
-        return render_template("index.html", firstname=name, recipe=recipe)
+        return render_template("index.html", firstname=name, recipe=recipe,quote = quote, author = author)
 
-    return render_template("index.html", recipe=recipe)
+    return render_template("index.html", recipe=recipe,quote = quote, author = author)
 
 
 # ROUTE FOR THE PROFILE TAB

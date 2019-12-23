@@ -54,9 +54,12 @@
 	</div>
 	<div id = 'introduction'>
 				<div class = 'introdescription'>
+					{% if quote and author %}
 					<h1> SHARING IS CARING </h1>
-					<p>I believe that people would be happier sharing things and being more of a collective rather than working from these neo-liberal ideas of just looking after yourself. People need each other</p> 
-					<h4>- Karin Dreijer Andersson</h4>
+					<p>{{quote}}</p> 
+					<h4>- {{author}}</h4><span style="z-index:50;font-size:0.9em;"><img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
+
+					{% endif %}
 				</div>
 
 				<div class = 'introimage'>
