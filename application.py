@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, session, flash, redirect
-# from flask_mysqldb import MySQL
 from datetime import timedelta, date
 import os
 from werkzeug.utils import secure_filename
@@ -44,16 +43,12 @@ def allowed_file(filename):
 @app.route('/<username>', methods = ['POST', 'GET'])
 def home(username=None):
 
-    #Random Quote Simulator
-    r = requests.get('http://quotes.rest/qod.json')
+    #Random Quote Simulator API
+    r = requests.get('https://quote-garden.herokuapp.com/quotes/random')
     content = r.text
     content = json.loads(content)
-    content = content["contents"]
-    content = content["quotes"]
-    for x in content:
-        quote = x["quote"]
-        author = x["author"]
-
+    quote = content["quoteText"]
+    author = content["quoteAuthor"]
 
 
     if request.method == 'POST':
@@ -68,15 +63,8 @@ def home(username=None):
         cur.execute("SELECT * FROM recipe")
         recipe = cur.fetchall()
 
-
-  # MYSQL COMMANDS:
-    # cur = mysql.connection.cursor()
-    # cur.execute("SELECT * FROM recipe")
-    # recipe = cur.fetchall()
-
     if 'username' in session:
         cur = conn.cursor()
-        # cur = mysql.connection.cursor()
         cur.execute(
             "SELECT firstname FROM user WHERE username = ?", [username])
         name = cur.fetchall()
