@@ -1,5 +1,5 @@
 # RecipeShareProject #
-A simple recipe sharing CRUD website using Flask where you can create an account, log in, create a recipe and share it. 
+A simple recipe sharing CRUD website using Flask where you can create an account, log in, create a recipe and share it. Visit the project at: https://recipeshare.glitch.me/
   
 ## Dependencies ##
 1. Python3
@@ -22,12 +22,12 @@ This project is still not finished. There are still some work to do:
 4. Make the website responsive (Almost Done)
 5. The website design (Done)
 6. Add the date when the recipe is created and on the comments section (Done)
-7. Deploy on free hosting website (Heroku or Pythonanywhere)
+7. Deploy on free hosting website (Hosted on glitch.com)
 
 
 ## ADDITIONAL STUFFS TO IMPROVE THE PROJECT ##
 1. Create an API so the recipes can be accessed by other applications/website
-2. Get data from the API of other websites (Added the random quote generator API)
+2. Get data from the API of other websites (Added the random quote generator API (QuoteGarden: https://pprathameshmore.github.io/QuoteGarden/))
 
 Note: Still learning about API's
 
