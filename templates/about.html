@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<header class = 'half-black'>
+		<div class="container">
+			<nav>	
+				<h2>RecipeShare</h2>
+				<ul>
+					{% if not session['username'] %}
+							<li><a href = {{ url_for("register")}} >Register</a></li>
+							<li><a href = {{ url_for("login")}}>Sign in</a></li>
+					{% else %}
+							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}> Logout </a></li>
+					{% endif %}	
+									
+							<li><a href = {{ url_for("about")}}>About</a></li>
+
+					{% if not session['username'] %}
+							<li><a href = {{ url_for("home")}}>Home</a></li>
+					{% else %}
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+					{% endif %}	
+				</ul>
+			</nav>
+		</div>
+</header>	
+<section id = 'showcase'>
+	<div class='container'>
+		<h3> About RecipeShare </h3>					
+	</div>
+</section>
+
+
+<section class = 'container'>
+	<br><h1>What is RecipeShare</h1>
+	<p>
+		<br>RecipeShare is a personal project created by Ryan Eleazar, an aspiring software developer that is currently self studying software development. RecipeShare is a project that allows the users to create and share their own recipe to the recipe collection. It has a functionality to add a specific recipe to a user reading list and allows other users to comment and a give reviews to each recipes. This project is continuously being improved by the developer as he learns new technologies that can make the project be considered as a full fledged website.<br><br>
+	</p>
+	<p> 
+		This project is currently being hosted at www.glitch.com which is an awesome website that helps developers host their projects and provides a coding environment where you can constantly change and improve your project. Unfortunately, glitch.com has a functionality where it puts the project to sleep whenever there are no visitors to the project. This resets everything on the project including data from the database, meaning that once this project sleeps, all the users and recipes will be deleted from the database. 
+	</p>
+	
+
+</section>
+
+
+
+{% endblock %}

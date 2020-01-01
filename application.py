@@ -100,7 +100,10 @@ def profile(username):
         return render_template('profile.html', UsersRecipe=UsersRecipe, UsersReadingList=UsersReadingList, username=user, UsersName = UsersName)
 
 
+@app.route('/about')
+def about():
 
+    return render_template('about.html')
 
 # ROUTE FOR THE REGISTER TAB
 @app.route('/register', methods=['POST', 'GET'])
@@ -119,7 +122,6 @@ def register():
                 cur = conn.cursor()
                 cur.execute("INSERT INTO user(username, password, email, firstname, lastname) VALUES(?, ?, ?, ?, ?)",
                             (username, password, email, firstname, lastname))
-                # mysql.connection.commit()
                 conn.commit()
                 cur.close()
                 flash('Registration Complete')
