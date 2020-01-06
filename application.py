@@ -44,11 +44,11 @@ def allowed_file(filename):
 def home(username=None):
 
     #Random Quote Simulator API
-    r = requests.get('https://quote-garden.herokuapp.com/quotes/random')
+    r = requests.get('https://api.quotable.io/random')
     content = r.text
     content = json.loads(content)
-    quote = content["quoteText"]
-    author = content["quoteAuthor"]
+    quote = content["content"]
+    author = content["author"]
 
 
     if request.method == 'POST':
@@ -269,7 +269,8 @@ def update(id,dishname):
             image = request.files['image']
 
             if not image:
-                imagename = 'default.gif'
+                for x in recipe:
+                    imagename = x[5]
 
             if image and not allowed_file(image.filename):
                 flash("That image extension is not allowed")

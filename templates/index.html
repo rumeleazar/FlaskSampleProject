@@ -14,7 +14,11 @@
 <header class = 'half-black'>
 		<div class="container">
 			<nav>	
-				<h2>RecipeShare</h2>
+				{% if session['username'] %}
+		        <a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
+		        {% else %}
+		        <a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
+		        {% endif %}
 				<ul>
 					{% if not session['username'] %}
 							<li><a href = {{ url_for("register")}} >Register</a></li>
@@ -57,7 +61,8 @@
 					{% if quote and author %}
 					<h1> SHARING IS CARING </h1>
 					<p>{{quote}}</p> 
-					<p>[Quotes from <a href = 'https://pprathameshmore.github.io/QuoteGarden/'>QuoteGarden</a>]</p>
+					<h5>{{author}}</h5>
+					<p>[Quotes from <a href = 'https://github.com/lukePeavey/quotable'>https://github.com/lukePeavey/quotable</a>]</p>
 					{% endif %}
 				</div>
 

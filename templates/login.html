@@ -17,7 +17,11 @@
 	<header class = 'loginnav'>
 			<div class="container">
 				<nav>
-					<h2>RecipeShare</h2>
+					{% if session['username'] %}
+			        <a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
+			        {% else %}
+			        <a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
+			        {% endif %}
 					<ul>
 						{% if not session['username'] %}
 							<li><a href = {{ url_for("register")}} >Register</a></li>

@@ -15,7 +15,11 @@
 	<header class = 'loginnav'>
 		<div class="container">
 			<nav>	
-				<h2>RecipeShare</h2>
+				{% if session['username'] %}
+		        <a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
+		        {% else %}
+		        <a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
+		        {% endif %}
 				<ul>
 					{% if not session['username'] %}
 							<li><a href = {{ url_for("register")}} >Register</a></li>
@@ -48,26 +52,28 @@
 			</div>
 			<div class = 'formcontainer'>
 				<form method = "POST" action = "update" enctype="multipart/form-data">
+					{% for n in recipe %}
 					<div class="container">
 					    <label>Dishname:</label><br>
-					    <input type="text" class="container" name = "dishname">
+					    <input type="text" class="container" name = "dishname" value = {{n[1]}}>
 		  			</div>
 				  	<div class="container">
 					    <label >Description:</label><br>
-					    <textarea class = 'container' name = 'description'></textarea> 
+					    <textarea class = 'container' name = 'description'>{{n[2]}}</textarea> 
 				  	</div>
 				  	<div class="container">
 					    <label >Ingredients:</label><br>
-					    <textarea class = 'container' name = 'ingredients' placeholder="Enter ingredients in list form"></textarea>
+					    <textarea class = 'container' name = 'ingredients' placeholder="Enter ingredients in list form">{{n[3]}}</textarea>
 				  	</div>
 				  	<div class="container">
 					    <label >Directions:</label><br>
-					    <textarea class = 'container' name = 'directions' placeholder="Enter directions in list form"></textarea>
+					    <textarea class = 'container' name = 'directions' placeholder="Enter directions in list form">{{n[4]}}</textarea>
 				  	</div>
 					<div clas = 'container'> 
 						<label>Main Image:</label>
-				  		<input type="file" name="image">
+				  		<input type="file" name="image" value = "{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" >
 				  	</div>
+				  	 {% endfor %}
 				  	<div class="container">
 				  		<div class ='updatebuttons'>
 				  			<button type="submit">Update</button>
