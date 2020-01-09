@@ -28,15 +28,6 @@ def allowed_file(filename):
     else:
         return False
 
- # MySQL Config
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] ='sqlroot123!'
-# app.config['MYSQL_DB'] = 'flask'
-
-# #Initialize the app for MYSQL
-# mysql = MySQL(app)
-
 
 # ROUTE FOR THE HOME
 @app.route('/' , methods = ['POST', 'GET'])
@@ -44,10 +35,10 @@ def allowed_file(filename):
 def home(username=None):
 
     #Random Quote Simulator API
-    r = requests.get('https://api.quotable.io/random')
+    r = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
     content = r.text
     content = json.loads(content)
-    quote = content["content"]
+    quote = content["quote"]
     author = content["author"]
 
 
