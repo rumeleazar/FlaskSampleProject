@@ -385,6 +385,11 @@ def search(recipe):
         return render_template('search.html', recipe = recipe)
 
 
+# @app.route('/admin')
+# def admin():
+    
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
