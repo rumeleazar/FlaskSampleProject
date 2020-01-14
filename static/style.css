@@ -631,7 +631,7 @@ nav ul a{
 	height: 30px;
 	width: 40%;
 	padding: 5px;
-	margin:0;
+	margin:auto;
 	border-radius: 20px;
 	font-size: 20px;
 }
@@ -1155,7 +1155,7 @@ nav ul a{
 
 
 /*MEDIA QUERIES*/
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 750px) {
 
 /*HEADER QUERIES*/
 
@@ -1188,21 +1188,25 @@ nav h2 {
 /*SHOWCASE QUERIES*/
 
 #showcase .container h3 {
-	display:none;
-
+	font-size: 40px;
+	margin-bottom: 0;
 }
 
-#showcase .searchbar {
-	margin-top:	40%;
-	width: 100%;
-}
+/*SHOWCASE QUERIES*/
+
 
 
 .addrecipebutton button{
 	font-size: 17px;
-	
+	margin: auto;
 
 }
+
+.searchbar ::placeholder {
+	font-size: 15px;
+}
+
+
 
 /*ARTICLE CONTAINER QUERIES*/
 
@@ -1215,10 +1219,16 @@ nav h2 {
 	align-self: center;
 }
 
+.introdescription p{
+	font-size:18px;
+	text-align: center;
+
+}
+
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
 
 #introduction {
 	display: block;
@@ -1250,9 +1260,25 @@ nav h2 {
 }
 #directionsshowcase {
 	width: 100%;
-	
-}
+
+
 }
 
+
+#showcase .container h3 {
+	font-size: 40px;
+	margin-bottom: 0;
+}
+
+.searchbar input[type=text] {
+
+	height: 30px;
+	width: 40%;
+	margin: 2% auto;
+}
+
+ 
+
+}
 
 
