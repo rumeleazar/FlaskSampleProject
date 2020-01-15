@@ -29,7 +29,7 @@ This project is still not finished. There are still some work to do:
 
 ## ADDITIONAL STUFFS TO IMPROVE THE PROJECT ##
 1. Create an API so the recipes can be accessed by other applications/website
-2. Get data from the API of other websites (Added the random quote generator API (QuoteGarden: https://pprathameshmore.github.io/QuoteGarden/))
+2. Get data from the API of other websites (Added the random quote generator API (http://quotes.stormconsultancy.co.uk/))
 
 Note: Still learning about API's
 
