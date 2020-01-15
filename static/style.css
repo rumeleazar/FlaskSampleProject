@@ -1164,6 +1164,7 @@ footer p {
 }
 nav ul{
 	background: rgba(0,0,0,0.3);
+	height: 95px;
 }
 
 header .container {
@@ -1171,10 +1172,8 @@ header .container {
 }
 
 nav li {
-	float:none;
 	width: 100%;
 	text-align: center;
-
 }
 
 nav h2 {

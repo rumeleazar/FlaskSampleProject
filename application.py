@@ -100,11 +100,25 @@ def about():
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT username, email FROM user")
+        user = cur.fetchall()
+    
         if request.method == 'POST':
             if request.form['username'] == '' or request.form['password'] == '' or request.form['email'] == '' or request.form['firstname'] == '' or request.form['lastname'] == '':
                 flash('Please fill up all the forms')
                 return redirect(url_for('register'))
+
             else:
+                for x in user:
+                    if request.form['username'] == x[0]:
+                        flash('Username already taken')
+                        return redirect(url_for('register'))
+
+                    if request.form['email'] == x[1]:
+                        flash('Email address already taken')
+                        return redirect(url_for('register'))
+
                 username = request.form['username']
                 password = request.form['password']
                 email = request.form['email']
@@ -112,7 +126,7 @@ def register():
                 lastname = request.form['lastname']
                 cur = conn.cursor()
                 cur.execute("INSERT INTO user(username, password, email, firstname, lastname) VALUES(?, ?, ?, ?, ?)",
-                            (username, password, email, firstname, lastname))
+                                (username, password, email, firstname, lastname))
                 conn.commit()
                 cur.close()
                 flash('Registration Complete')
@@ -193,15 +207,11 @@ def addrecipe():
             cur = conn.cursor()
             cur.execute("SELECT * FROM recipe")
             recipe = cur.fetchall()
+            flash('Recipe has been successfully created')
+            return redirect(url_for('home', recipe=recipe, imagename=imagename))
 
-            if session.get('username', None) is not None:
-                return render_template('index.html', recipe=recipe, imagename=imagename)
-            else:
-                return render_template('index.html', recipe=recipe, imagename=imagename)
+    return render_template('addrecipe.html')
 
-        return render_template('addrecipe.html')
-
-        return render_template('index.html', recipe=recipe, imagename=imagename)
 
 
 # THIS IS THE WHERE YOU CAN CLICK THE RECIPE AND IT WILL REDIRECT YOU TO THE RECIPE DETAILS
