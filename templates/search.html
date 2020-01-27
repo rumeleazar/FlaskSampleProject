@@ -19,12 +19,12 @@
 							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}>Logout</a></li>
 					{% endif %}	
 									
-							<li><a href = "#">About</a></li>
+							<li><a href = {{ url_for("about")}}>About</a></li>
 
 					{% if not session['username'] %}
 							<li><a href = {{ url_for("home")}}>Home</a></li>
 					{% else %}
-							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile({{session['username']}})</a></li>
 							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
 					{% endif %}	
 				</ul>

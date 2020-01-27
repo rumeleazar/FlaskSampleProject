@@ -60,9 +60,9 @@ def home(username=None):
             "SELECT firstname FROM user WHERE username = ?", [username])
         name = cur.fetchall()
 
-        return render_template("index.html", firstname=name, recipe=recipe,quote = quote, author = author)
+        return render_template("index.html", firstname=name, recipe=recipe,quote =quote, author = author)
 
-    return render_template("index.html", recipe=recipe,quote = quote, author = author)
+    return render_template("index.html", recipe=recipe,quote =quote, author = author)
 
 
 # ROUTE FOR THE PROFILE TAB
@@ -70,7 +70,7 @@ def home(username=None):
 def profile(username):
 
     with sqlite3.connect('database.db') as conn:
-        user = session['username']
+        user = username
         # Showing users own created recipe
         currecipe = conn.cursor()
         currecipe.execute("SELECT * FROM recipe WHERE author = ?", [user])
@@ -169,6 +169,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('username', None)
+    flash('You have successfully logged out')
     return redirect(url_for('home'))
 
 
@@ -222,11 +223,11 @@ def article(id,dishname):
 
     with sqlite3.connect('database.db') as conn:    
         cur = conn.cursor()
-        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.ingredients, recipe.directions,recipe.id,recipe.author,recipe.datetoday FROM recipe INNER JOIN user ON recipe.author = user.username WHERE recipe.id = ?", [id])
+        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.ingredients, recipe.directions,recipe.id,recipe.author,recipe.datetoday,user.username FROM recipe INNER JOIN user ON recipe.author = user.username WHERE recipe.id = ?", [id])
         recipe = cur.fetchall()
 
         cur = conn.cursor()
-        cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+        cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday,user.username FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
         usercomment = cur.fetchall()
 
         if request.method == 'POST':
@@ -242,7 +243,7 @@ def article(id,dishname):
                 cur.close()
 
                 cur = conn.cursor()
-                cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
+                cur.execute("SELECT user.firstname, user.lastname, comments.comments,comments.datetoday,user.username FROM user INNER JOIN comments ON user.username = comments.user WHERE comments.id = ?",[id])
                 usercomment = cur.fetchall()
                 
                 return render_template('article.html', recipe=recipe, usercomment = usercomment)
@@ -394,6 +395,10 @@ def search(recipe):
 
         return render_template('search.html', recipe = recipe)
 
+
+
+
+#CREATE AN ADMIN FUNCTIONALITY 
 
 # @app.route('/admin')
 # def admin():

@@ -2,15 +2,6 @@
 
 {% block content %} 
 
-
-{% with messages = get_flashed_messages() %}
-	{% if messages %}
-		{% for message in messages%}
-				{{message}}
-		{% endfor %}
-	{% endif %}
-{% endwith %}
-
 <body class = 'registrationpage'>
 	
 	<section>
@@ -31,7 +22,7 @@
 							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}>Logout</a></li>
 						{% endif %}	
 									
-							<li><a href = "#">About</a></li>
+							<li><a href = {{ url_for("about")}}>About</a></li>
 
 						{% if not session['username'] %}
 							<li><a href = {{ url_for("home")}}>Home</a></li>
@@ -42,7 +33,15 @@
 				</nav>
 			</div>
 		</header>
-
+			<div>
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages%}
+							{{message}}
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+			</div>
 			<div id = 'registercontainer'>
 					<form method = "POST" action = "register">
 						<div class = 'registerform'>

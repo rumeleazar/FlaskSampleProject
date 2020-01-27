@@ -26,12 +26,12 @@
 							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}>Logout</a></li>
 					{% endif %}	
 									
-							<li><a href = "#">About</a></li>
+							<li><a href = {{ url_for("about")}}>About</a></li>
 
 					{% if not session['username'] %}
 							<li><a href = {{ url_for("home")}}>Home</a></li>
 					{% else %}
-							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
+							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile({{session['username']}})</a></li>
 							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
 					{% endif %}	
 				</ul>
@@ -47,7 +47,7 @@
 				<h2>{{n[0]}}</h2>				
 			</div>
 			<div class = 'container'>
-				<h4>By {{n[1]}} {{n[2]}}</h4>
+				<h4>By <a href = {{ url_for("profile", username = n[10]) }}>{{n[1]}} {{n[2]}}</a></h4>
 				<h5>{{n[9]}}</h5>
 			</div>
 		</article>
@@ -125,7 +125,7 @@
 		{% for m in usercomment %}
 		<div class = 'comments'>
 			<div class ='container'>
-					<h3> {{m[0]}} {{m[1]}}</h3>
+					<a href = {{ url_for("profile", username = m[4]) }}><h3> {{m[0]}} {{m[1]}}</h3></a>
 					<h6>Posted: {{m[3]}}</h6>
 					<p>{{m[2]}}</p>
 				</div>
