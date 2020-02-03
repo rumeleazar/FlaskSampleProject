@@ -205,7 +205,7 @@ img {
 	background-color: #F5F5DC;
 	text-align: center;
 	padding: 0;	
-	margin: 0 auto;
+	margin: 0 20px;
 	display: inline-block;
 	position: relative;
 	
@@ -263,12 +263,14 @@ img {
 }
 
 .descriptionbox {
-	margin: 0;
+
+	width: 90%;
+	margin: 0 auto;
 	padding: 0;
 	position: flex;
 	overflow: hidden;
  	 display: -webkit-box;
-  	-webkit-line-clamp: 5;
+  	-webkit-line-clamp: 3;
   	-webkit-box-orient: vertical;
   	text-align: center;
   	
@@ -742,7 +744,7 @@ nav ul a{
 #pictureshowcase img {
 	min-height: 300px;
 	min-width: 300px;
-	width: 100%;
+	width: 95%;
 	height: auto;
 	align-self: center;
 	position: relative;
@@ -808,7 +810,7 @@ nav ul a{
 
 
 #dishnamesummarygroup2 {
-	width: 100%;
+	width: 95%;
 	display:inline-flex;
 	padding: auto;
 	position: relative;
@@ -837,18 +839,19 @@ nav ul a{
 	text-align: center;
 	margin: auto;
 	font-size: 50px;
+	text-indent: 45px;
 }
 
 
 #ingredientsshowcase li{
 	margin: auto;
-	padding: 0 0 5px 30px;
+	padding: 0 0 5px 45px;
 	list-style: none;
 	background-image: url('/static/images/ingredients.png');
 	background-repeat: no-repeat;
 	background-position: left ;
 	background-size: 30px;
-	text-align: center;
+	text-align: justify;
 	width: auto;
 
 
@@ -869,6 +872,7 @@ nav ul a{
 	text-align: center;
 	margin: auto;
 	font-size: 50px;
+	text-indent: 45px;
 
 
 }
@@ -876,7 +880,7 @@ nav ul a{
 
 #directionsshowcase li{
  	margin: auto;
-	padding: 0 0 5px 70px;
+	padding: 0 0 5px 45px;
 	list-style: none;
 	background-image: url('/static/images/directions.png');
 	background-repeat: no-repeat;
