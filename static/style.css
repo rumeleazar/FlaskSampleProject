@@ -90,12 +90,11 @@ img {
 }
 
 #articlecontainer{
-	width: 100%;
-	min-height: 500px;
+	width: 98%;
 	height: auto;
 	margin: auto;
-	padding:0;
-	overflow: auto;
+	padding-bottom:80px;
+	overflow: visible;
 	justify-content: center;
 	position: relative;
 	display: inline-block;
@@ -188,7 +187,7 @@ img {
 	padding: 0 ;
 	position: relative;
 	margin: 0;
-	padding: 0;	
+	padding: 20px 0;	
 	display:inline-block;
 }
 
@@ -199,19 +198,24 @@ img {
 }
 
 .column{
-	overflow: hidden;
+	overflow: visible;
 	width: 250px;
-	height: 400px;
+	height: 380px;
 	background-color: #F5F5DC;
 	text-align: center;
 	padding: 0;	
 	margin: 0 20px;
 	display: inline-block;
 	position: relative;
+	transition: transform.2s;
 	
-
-
 }
+
+
+.column:hover {
+	transform: scale(1.1);
+}
+
 
 
 .column h3 {
@@ -968,7 +972,7 @@ nav ul a{
 	margin-top:50px;
 	padding: 0;
 	position: relative;
-	display: block; 
+	display: flex; 
 	font-size: 24px;
 	border-top:1px solid #ead1ae;
 
@@ -1038,9 +1042,8 @@ nav ul a{
 #profilerecipecontainer {
 
 	width: 100%;
-	min-height: 400px;
 	margin: 0 10px;
-	padding: none;
+	padding: 50px 0;
 	overflow: auto;
 	justify-content: center;
 	text-align: center;
@@ -1215,11 +1218,12 @@ nav h2 {
 
 
 .column {
-	display: block;
+	display: inline-block;
 	text-align: center;
 	justify-content: center;
 	align-content: center;
-	align-self: center;
+
+
 }
 
 .introdescription p{
@@ -1228,10 +1232,86 @@ nav h2 {
 
 }
 
+#pictureshowcase img {
+	min-height: 240px;
+	min-width: 240px;
+	width: 95%;
+	height: auto;
+	align-self: center;
+	position: relative;
+	margin: 0;
+	border:5px solid white;
+	max-height: 700px;
+}
+
+#pictureshowcase p {
+	margin: 0;
+	padding-top: 0;
+	font-size: 15px;
+	width: 100%;
+
+}
+
+.links li {
+	font-size: 11px;
+	padding: 0;
+}
+
+#dishnameshowcase h2{
+	font-size: 40px;
+}
+
+#dishnameshowcase h4{
+	font-size: 25px;
 }
 
 
-@media screen and (max-width: 1000px) {
+#ingredientsshowcase h1 {
+	font-size: 35px;
+
+}
+
+#ingredientsshowcase li{
+	font-size: 16px;
+}
+
+#directionsshowcase h1 {
+	font-size: 35px;
+
+}
+
+#directionsshowcase li{
+	font-size: 16px;
+}
+
+.commentheader h1 {
+	font-size: 35px;
+}
+
+#commentbox textarea {
+	height: 100px;
+	width: 95%;
+
+}
+
+#commentbox textarea::placeholder {
+	font-size: 20px;
+
+}
+.comments p {
+	font-size: 16px;
+	display: inline-block;
+}
+
+
+
+
+
+
+}
+
+
+@media screen and (max-width: 1380px) {
 
 #introduction {
 	display: block;
@@ -1280,7 +1360,16 @@ nav h2 {
 	margin: 2% auto;
 }
 
- 
+#ingredientsshowcase li{
+	text-align: center;
+}
+
+
+.links li {
+	font-size: 16px;
+	padding: 0;
+}
+
 
 }
 
