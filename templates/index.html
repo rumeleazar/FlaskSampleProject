@@ -93,13 +93,16 @@
 			{% endif %}
 			{% for n in recipe %}
 				<div class = 'column'>
-					<a href = "{{ url_for('article', id = n[0], dishname = n[1])}}">
-						<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[5])}}" height = 200px height = 220px>
-						<h3> {{n[1]}}</h3>
+					<a href = "{{ url_for('article', id = n[5], dishname = n[0])}}">
+						<img src="{{ url_for('static' , filename = 'images/recipeimages/' + n[3])}}" height = 200px height = 220px>
+						<h3> {{n[0]}}</h3>
 						<div class = 'descriptionbox'>
-							<p>{{n[2]}}</p>
+							<p>{{n[4]}}</p>
 						</div>
 						<br>
+						<div>
+							<p> By {{n[1]}} {{n[2]}} </p>
+						</div>
 					</a>
 				</div>	
 			{% endfor %}	

@@ -49,9 +49,14 @@ def home(username=None):
 
 
     # SQLITE3 COMMANDS:
-    with sqlite3.connect('database.db') as conn:
+    # with sqlite3.connect('database.db') as conn:
+    #     cur = conn.cursor()
+    #     cur.execute("SELECT * FROM recipe")
+    #     recipe = cur.fetchall()
+
+    with sqlite3.connect('database.db') as conn:    
         cur = conn.cursor()
-        cur.execute("SELECT * FROM recipe")
+        cur.execute("SELECT recipe.dishname, user.firstname, user.lastname, recipe.imagename, recipe.description, recipe.id FROM recipe INNER JOIN user ON recipe.author = user.username")
         recipe = cur.fetchall()
 
     if 'username' in session:
