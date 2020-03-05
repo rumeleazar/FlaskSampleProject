@@ -11,44 +11,19 @@
 	{% endif %}
 {% endwith %}
 			
-<header class = 'half-black'>
-		<div class="container">
-			<nav>	
-				{% if session['username'] %}
-		        <a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
-		        {% else %}
-		        <a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
-		        {% endif %}
-				<ul>
-					{% if not session['username'] %}
-							<li><a href = {{ url_for("register")}} >Register</a></li>
-							<li><a href = {{ url_for("login")}}>Sign in</a></li>
-					{% else %}
-							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}>Logout</a></li>
-					{% endif %}	
-									
-							<li><a href = {{ url_for("about")}}>About</a></li>
-
-					{% if not session['username'] %}
-							<li><a href = {{ url_for("home")}}>Home</a></li>
-					{% else %}
-							<li><a href = {{ url_for("profile", username = session['username'])}}>Profile({{session['username']}})</a></li>
-							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-					{% endif %}	
-				</ul>
-			</nav>
-		</div>
-</header>	
+<br>
+<br>
 <section id = 'showcase'>
 	<div class='container'>
 		<h3> Find a Recipe </h3>					
 	</div>
-		<div class = 'searchbar'>
-			<form method = "POST" action = "search">
-				<input type="text" name="recipesearch" placeholder="Search for recipes">
-			</form>			
-		</div>		
+	<div class = 'searchbar'>
+		<form method = "POST" action = "search">
+			<input type="text" name="recipesearch" placeholder="Search for recipes">
+		</form>			
+	</div>		
 </section>
+
 <section id ='articlebox'>
 	<div id = 'banner'>			
 		<div class='container'>
@@ -56,21 +31,22 @@
 		<p>Share your own recipe and save it to our recipe collection!</p>
 		</div>
 	</div>
-	<div id = 'introduction'>
-				<div class = 'introdescription'>
-					{% if quote and author %}
-					<h1> SHARING IS CARING </h1>
-					<p>{{quote}}</p> 
-					<h5>- {{author}}</h5>
-					<p>[Quotes from <a href = http://quotes.stormconsultancy.co.uk/>http://quotes.stormconsultancy.co.uk/</a>]</p>
-					{% endif %}
-				</div>
 
-				<div class = 'introimage'>
-					<img src = '/static/images/gourmet.jpg'>
-				</div>
-							
+	<div id = 'introduction'>
+		<div class = 'introdescription'>
+			<h1> SHARING IS CARING </h1>
+			<p class = 'quote'></p> 
+			<h5 class = 'author'></h5>
+			<p>[Quotes from <a href = http://quotes.stormconsultancy.co.uk/>http://quotes.stormconsultancy.co.uk/</a>]</p>	
+		</div>
+	
+
+		<div class = 'introimage'>
+			<img src = '/static/images/gourmet.jpg'>
+		</div>
+
 	</div>
+
 	
 	<div id ='articlecontainer'>
 		<div class = 'row'>

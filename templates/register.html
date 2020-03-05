@@ -3,36 +3,8 @@
 {% block content %} 
 
 <body class = 'registrationpage'>
-	
-	<section>
 
-		<header class = 'loginnav'>
-			<div class="container">
-				<nav>
-					{% if session['username'] %}
-			        <a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
-			        {% else %}
-			        <a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
-			        {% endif %}
-					<ul>
-						{% if not session['username'] %}
-							<li><a href = {{ url_for("login")}} >Sign in</a></li>
-							
-						{% else %}
-							<li id = 'LogoutButton' ><a href = {{ url_for("logout")}}>Logout</a></li>
-						{% endif %}	
-									
-							<li><a href = {{ url_for("about")}}>About</a></li>
 
-						{% if not session['username'] %}
-							<li><a href = {{ url_for("home")}}>Home</a></li>
-						{% else %}
-							<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
-						{% endif %}	
-					</ul>
-				</nav>
-			</div>
-		</header>
 			<div>
 				{% with messages = get_flashed_messages() %}
 					{% if messages %}

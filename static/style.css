@@ -1,7 +1,13 @@
+/*.quote {
+	font-size: 24px;
+}
 
+.author {
+	font-size: 24px;
+}*/
 /*Global Commdands */
 
-html  	{ 
+html  { 
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -37,9 +43,10 @@ footer 	{
 footer p {
 	font-size: 20px;
 	transform: translateY(150%);
-	color: black;
+	color: #FFFF;
 	float:right;
 	clear: right;
+	text-shadow: 3px 1px 3px black; 
 
 }
 
@@ -212,11 +219,6 @@ img {
 }
 
 
-.column:hover {
-	transform: scale(1.1);
-}
-
-
 
 .column h3 {
 	font-size: 25px;
@@ -286,64 +288,110 @@ img {
 /*Headers(ALL HTML) */
 header {
 	height: auto;
-	min-height: 80px;
 	margin: auto;
 	padding: none;
-	width: 100%; 
+	width:100%; 
 	position:relative;
-	top:0;
+	
 }
 
 
-.half-black {
-  background: rgba(0,0,0,0);
-
-
+header .container {
+	overflow: visible;
 }
+
 
 .loginnav {
 	background: rgba(0,0,0,0.1);
 	font-color: white;
+	width: 100%;
+
 }
 
-nav li{
+
+
+nav ul {
+	position: relative;
+	margin: auto;
+	padding: 0;
+	display: block;
+	height: 60px;
+	width: 100%;
+
+
+
+}
+
+
+
+nav a h2 {
+	float:left;
+	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  	color: #FFFF;
+  	text-shadow: 3px 1px 3px black; 
+  	font-size: 47px;
+  	margin-top: auto;
+  	padding-top: 14px;
+  	position: relative;
+  	z-index: 2;
+
+
+  
+}
+
+
+nav ul li{
 	float:right;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 	text-decoration: none;
 	text-transform: uppercase;
 	position: relative;
 	list-style-type: none;
-	margin: auto;		
+	margin: auto;	
+	padding-top: 28px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #FFFF;
+	margin-right: 20px;	
+	text-shadow: 3px 1px 3px black; 
+
 }
 
-nav h2 {
-	float:left;
-	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
-  	color: #FFFF;
-  	text-shadow: 3px 1px 3px black; 
-  	font-size: 47px;
-  	margin: auto 20px;
-  	padding-top: 5px;
-}
 
-nav a h2{
-  margin-top: auto;
-}
 
 nav ul a{
 	font-weight: bold;
-	color: #696969;
-	font-size: 16px;
+	color: #FFFF;
+	text-shadow: 3px 1px 3px black; 
+	font-size: 18px;
 	text-decoration: none;
 	margin-right: 20px;
 }
 
-#LogoutButton {
-	float: right;
-	position: relative;
+nav ul li ul {
+	position: absolute;
+	z-index: 10;
+	height: 100px;
+	width: 100%;
+	text-align: center;
+	background: rgba(0,0,0,0.1);
+	opacity: 0.8;
+	margin-top: 6px;
+	display: none;
+
 
 }
 
+nav ul li ul li {
+	position: relative;
+	float:none;
+	height: 40%;
+	width: 100%;
+	padding:0;
+	padding-top: 10px;
+	margin: auto;
+	
+}
 
 
 
@@ -611,9 +659,12 @@ nav ul a{
 	width: 80%;
 	border-radius: 40px;
 	box-shadow: 0 20px 40px;
-
-
+	margin-top: 0;
+	position:relative;
+	
 }
+
+
  #showcase h3{
  	font-size: 60px;
  	margin-bottom: 10px;
@@ -683,18 +734,18 @@ nav ul a{
 #recipeshowcase {
 
 	width: 70%;
-	margin: auto;
-	overflow: auto;
-	position: relative;
-	font-size: 13px;
 	overflow: hidden;
+	position: relative;
+	margin: auto;
+	font-size: 13px;
 	min-height: 1000px;
 	height: auto;
 	display: flex;
 	flex-direction: column;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-	
 }
+
+
 
 .links  {
 	position: relative;
@@ -774,7 +825,6 @@ nav ul a{
 	text-align: center;
 	position: relative;
 	height: auto;
-	margin-top: 40px;
 	border-top: 1px solid #ead1ae;
 	border-bottom:1px solid #ead1ae;
 
@@ -1164,6 +1214,87 @@ nav ul a{
 
 
 /*MEDIA QUERIES*/
+
+
+@media screen and (max-width: 1380px) {
+
+nav ul a{
+	font-size: 16px;
+	
+}
+
+.userprofilename {
+	font-size: 16px;
+	padding-top: 30px;
+}
+
+nav h2 {
+	font-size:40px;
+}
+
+
+#introduction {
+	display: block;
+}
+
+.introimage {
+	width: 60%;
+}
+
+#pictureshowcase {
+	margin: auto;
+	height: auto;
+	
+}
+#dishnameshowcase {
+	margin: auto;
+	height: auto;
+}
+
+#dishnamesummarygroup2 {
+	display:block;	
+
+}
+
+#ingredientsshowcase {
+	width: 100%;
+	
+
+}
+#directionsshowcase {
+	width: 100%;
+
+
+}
+
+
+#showcase .container h3 {
+	font-size: 45px;
+	margin-bottom: 0;
+}
+
+.searchbar input[type=text] {
+
+	height: 30px;
+	width: 40%;
+	margin: 2% auto;
+}
+
+#ingredientsshowcase li{
+	text-align: center;
+}
+
+
+.links li {
+	font-size: 16px;
+	padding: 0;
+}
+
+
+}
+
+
+
 @media screen and (max-width: 750px) {
 
 /*HEADER QUERIES*/
@@ -1171,9 +1302,31 @@ nav ul a{
 footer p {
 	font-size: 15px;
 }
+
+
+nav h2{
+	padding: 12px;
+}
+
+
 nav ul{
 	background: rgba(0,0,0,0.3);
-	height: 95px;
+	display: flex;
+	flex-direction: column-reverse;
+	margin: auto;
+	height: 130px;
+	padding: 0;
+	width: 100%;
+
+	
+}
+
+nav ul li {
+	margin-right: 0;
+	padding: 0;
+	margin: 0 auto;
+	height: 38px;
+
 }
 
 header .container {
@@ -1183,17 +1336,66 @@ header .container {
 nav li {
 	width: 100%;
 	text-align: center;
+	position: relative;
+	height: 4%;
+	margin-right: 0;
+
+
+
+	
 }
 
 nav h2 {
 	float: none;
 	width: 100%;
 	text-align: center;
+	font-size:40px;
+	margin: auto;
+
+
+}
+
+nav ul a {
+	font-size: 15px;
+	margin: 0 auto;
+
+
+}
+nav ul li ul {
+	height: 80px;
+	line-height: 40px;
+	
+}
+
+nav ul li ul li {
+	width: 100%;
+	height: 50%;
+	padding-top: 0;
+
+	
+}
+
+.loginnav {
+	background: rgba(0,0,0,0);
+
+}
+.userprofilename {
+	font-size: 16px;
+	padding-top: 6px;
 
 }
 
 
+
+
 /*SHOWCASE QUERIES*/
+
+
+#showcase{
+	min-height: 380px;
+
+
+}
 
 #showcase .container h3 {
 	font-size: 40px;
@@ -1214,11 +1416,16 @@ nav h2 {
 	font-size: 15px;
 }
 
+.searchbar input[type=text] {
+
+	height: 30px;
+	width: 43%;
+	margin: 2% auto;
+}
+
 
 
 /*ARTICLE CONTAINER QUERIES*/
-
-
 .column {
 	display: inline-block;
 	text-align: center;
@@ -1233,6 +1440,8 @@ nav h2 {
 	text-align: center;
 
 }
+
+/*SPECIFIC RECIPE ARTICLE PAGE*/
 
 #pictureshowcase img {
 	min-height: 240px;
@@ -1308,69 +1517,6 @@ nav h2 {
 
 
 
-
-
-}
-
-
-@media screen and (max-width: 1380px) {
-
-#introduction {
-	display: block;
-}
-
-.introimage {
-	width: 60%;
-}
-
-#pictureshowcase {
-	margin: auto;
-	height: auto;
-	
-}
-#dishnameshowcase {
-	margin: auto;
-	height: auto;
-}
-
-#dishnamesummarygroup2 {
-	display:block;	
-
-}
-
-#ingredientsshowcase {
-	width: 100%;
-	
-
-}
-#directionsshowcase {
-	width: 100%;
-
-
-}
-
-
-#showcase .container h3 {
-	font-size: 40px;
-	margin-bottom: 0;
-}
-
-.searchbar input[type=text] {
-
-	height: 30px;
-	width: 40%;
-	margin: 2% auto;
-}
-
-#ingredientsshowcase li{
-	text-align: center;
-}
-
-
-.links li {
-	font-size: 16px;
-	padding: 0;
-}
 
 
 }

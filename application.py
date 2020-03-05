@@ -35,11 +35,11 @@ def allowed_file(filename):
 def home(username=None):
 
     #Random Quote Simulator API
-    r = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
-    content = r.text
-    content = json.loads(content)
-    quote = content["quote"]
-    author = content["author"]
+    # r = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
+    # content = r.text
+    # content = json.loads(content)
+    # quote = content["quote"]
+    # author = content["author"]
 
 
     if request.method == 'POST':
@@ -65,9 +65,9 @@ def home(username=None):
             "SELECT firstname FROM user WHERE username = ?", [username])
         name = cur.fetchall()
 
-        return render_template("index.html", firstname=name, recipe=recipe,quote =quote, author = author)
+        return render_template("index.html", firstname=name,recipe = recipe)
 
-    return render_template("index.html", recipe=recipe,quote =quote, author = author)
+    return render_template("index.html", recipe=recipe)
 
 
 # ROUTE FOR THE PROFILE TAB
