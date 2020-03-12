@@ -2,24 +2,25 @@
 
 {% block content %} 
 
-
+<br>
+<br>
+<br>
+<br>
 
 <section id = 'profilebox'>
 
-	<header class = 'container'>
-		<div class = 'headername'>
-			{% for name in UsersName %}
-				<h2>{{name[0]}} {{name[1]}}</h2><br><br>
-			{% endfor %}
-		</div>
-	</header>
+	
+	<div class = 'headername'>
+		{% for name in UsersName %}
+			<h2>{{name[0]}} {{name[1]}}</h2>
+		{% endfor %}
+	</div>
+
 		<section>
-			<div class = 'container'>
-				<h1>Created Recipes</h1>
-			</div>
+	
+			<h1>Created Recipes</h1>
 			<div id = 'profilerecipecontainer'>
-				<div class = 'container'>
-					<div class = 'row'>
+					<div class = 'row searchcontainer'>
 						{% for n in UsersRecipe %}
 							<div class = 'column'>
 								<a href = "{{ url_for('article', id = n[0], dishname = n[1])}}">
@@ -32,14 +33,13 @@
 								<br>
 							</div>
 						{% endfor %}
-					</div>
 				</div>	
 			</div>
 			<div class = 'container'>
 				<h1>Reading List</h1>
 			</div>
 			<div id ='profilerecipecontainer'>
-				<div class = 'row'>
+				<div class = 'row searchcontainer'>
 					{% for n in UsersReadingList %}
 						<div class = 'column'>
 								<a href = "{{ url_for('article', id = n[0], dishname = n[1])}}">

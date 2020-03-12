@@ -11,21 +11,13 @@
 	{% endif %}
 {% endwith %}
 			
-<br>
-<br>
+
 <section id = 'showcase'>
-	<div class='container'>
-		<h3> Find a Recipe </h3>					
-	</div>
-	<div class = 'searchbar'>
-		<form method = "POST" action = "search">
-			<input type="text" name="recipesearch" placeholder="Search for recipes">
-		</form>			
-	</div>		
+	
 </section>
 
-<section id ='articlebox'>
-	<div id = 'banner'>			
+<section class ='articlebox'>
+	<div class = 'banner'>			
 		<div class='container'>
 		<h1>What to cook this week?</h1>
 		<p>Share your own recipe and save it to our recipe collection!</p>
@@ -50,14 +42,16 @@
 	
 	<div id ='articlecontainer'>
 		<div class = 'row'>
-			<h1>Our recipe collection</h1>
+			<div class = 'recipecollectionheader'>
+				<h1>Our recipe collection</h1>
 
-			{% if not session['username'] %}
-			<div class ='addrecipebutton'>
-				<a href = 'addrecipe'>
-					<a href = 'login'><button type="button">Share your own recipe!</button></a>
-				</a>
-			</div><br><br><br>
+				{% if not session['username'] %}
+				<div class ='addrecipebutton'>
+					<a href = 'addrecipe'>
+						<a href = 'login'><button type="button">Share your own recipe!</button></a>
+					</a>
+				</div>
+			</div><br><br>
 			{% endif %}
 
 			{% if session['username'] %}

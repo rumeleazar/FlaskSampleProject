@@ -9,13 +9,11 @@
 		{% endfor %}
 	{% endif %}
 {% endwith %}
-<br>
-<br>
 
 
 <section id = 'recipeshowcase'>
 	{% for n in recipe %}
-	<article id = 'dishnamesummarygroup'>
+	<article class = 'dishnamesummarygroup'>
 		<article id = 'dishnameshowcase'>
 			<div class = 'container'>
 				<h2>{{n[0]}}</h2>				
@@ -52,7 +50,7 @@
 	</article>
 
 	<article id = 'dishnamesummarygroup2'>
-		<article id = 'ingredientsshowcase'>
+		<article class = 'ingredientsshowcase'>
 			<div class = 'container'>
 				<h1>Ingredients:</h1>
 				{% set ing = n[5].split('\n') %}	
@@ -64,7 +62,7 @@
 		
 			</div>
 		</article>
-		<article id = 'directionsshowcase'>
+		<article class = 'directionsshowcase'>
 			<div class = 'container'>
 				<h1>Directions:</h1>
 				{% set dir = n[6].split('\n') %}	
@@ -78,35 +76,38 @@
 	</article>
 
 	{% endfor %}
-	
+
+	<div class = 'commentsArea'>
 		<div class = 'commentheader'>
 			<h1>Comments:</h1>	
 		</div>
-	{% if session['username'] %}
-		<article id = 'commentbox' >
-			<div class = 'container'>
-				<form method="POST", action = {{id}}>
-					<textarea name = 'comments' placeholder="Leave a comment..."></textarea> <br>
+		{% if session['username'] %}
+			<article id = 'commentbox' >
+				<div class = 'container'>
+					<form method="POST", action = {{id}}>
+						<textarea name = 'comments' placeholder="Leave a comment..."></textarea> <br>
 
-					<button type="submit">Submit</button>
-				</form>
-			</div>
-		</article>
-	<hr>
-
-	{% endif %}
-	<section id = 'commentsection'>
-		{% for m in usercomment %}
-		<div class = 'comments'>
-			<div class ='container'>
-					<a href = {{ url_for("profile", username = m[4]) }}><h3> {{m[0]}} {{m[1]}}</h3></a>
-					<h6>Posted: {{m[3]}}</h6>
-					<p>{{m[2]}}</p>
+						<button type="submit">Submit</button>
+					</form>
 				</div>
-			</div>	
+			</article>
+		<hr>
+
+		{% endif %}
+		<section id = 'commentsection'>
+			{% for m in usercomment %}
+			<div class = 'comments'>
+				<div class ='container'>
+						<a href = {{ url_for("profile", username = m[4]) }}><h3> {{m[0]}} {{m[1]}}</h3></a>
+						<h6>Posted: {{m[3]}}</h6>
+						<p>{{m[2]}}</p>
+					</div>
+				</div>	
 			{% endfor %}	
-		</div>
-	</section>
+			
+		</section>
+
+	</div>
 
 	
 

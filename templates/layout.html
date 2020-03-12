@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -16,41 +16,50 @@
 			<div id = 'fullbodycontainer'>
 				<div class = 'main'>
 					<header class = 'loginnav'>
-						<div class = 'container'>
+					
 							<nav>	
 								{% if not session['username'] %}
 										<a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
 						        {% else %}
 						        		<a href = {{ url_for("home", username = session['username'])}}><h2>RecipeShare</h2></a>
 								{% endif %}
+
+								<div class = 'searchbar'>
+									<form method = "POST" action = "search">
+										<input type="text" name="recipesearch" placeholder="Search for recipes">
+									</form>			
+								</div>		
 								<ul>
 									{% if not session['username'] %}
-											<li><a href = {{ url_for("register")}} >Register</a></li>
-											<li><a href = {{ url_for("login")}}>Sign in</a></li>
-											<li><a href = {{ url_for("about")}}>About</a></li>
 											<li><a href = {{ url_for("home")}}>Home</a></li>
+											<li><a href = {{ url_for("about")}}>About</a></li>
+											<li><a href = {{ url_for("login")}}>Sign in</a></li>
+											<li><a  href = {{ url_for("register")}}>Register</a></li>
+											
 									{% else %}
-											<li class = 'userprofilename'>{{session['username']}}
-												<ul>
+
+											<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+											<li><a href = {{ url_for("about")}}>About</a></li>
+											<li class = 'userprofilename'>  {{session['username']}}							<ul>
 													<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
 													<li><a href = {{ url_for("logout")}}>Logout</a></li>
 													
 												</ul>
 											</li>
-											<li><a href = {{ url_for("about")}}>About</a></li>
-											<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
+											
 
 									{% endif %}		
 								</ul>
 							</nav>
-						</div>
+						
 					</header>
 					{% block content %}{% endblock %}
 				</div>
 			</div>
 
 				<footer>
-							<p>RECIPESHARE &copy 2019 | All Rights Reserved.</p>
+
+							<p>RECIPESHARE &copy 2020 | All Rights Reserved.</p>
 							<p>Created by: Ryan Eleazar</p>	
 				</footer>
 
