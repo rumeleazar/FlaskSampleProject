@@ -18,6 +18,14 @@
 					<header class = 'loginnav'>
 					
 							<nav>	
+									<div class ='hamburgerContainer'>
+										<div class = 'hamburgerMenu'>
+																			
+										</div>
+									</div>
+
+
+
 								{% if not session['username'] %}
 										<a href = {{ url_for("home")}}><h2>RecipeShare</h2></a>
 						        {% else %}
@@ -40,7 +48,9 @@
 
 											<li><a href = {{ url_for("home", username = session['username'])}}>Home</a></li>
 											<li><a href = {{ url_for("about")}}>About</a></li>
-											<li class = 'userprofilename'>  {{session['username']}}							<ul>
+											<li class = 'userprofilename'>{{session['username']}} &#9660	
+
+													<ul>
 													<li><a href = {{ url_for("profile", username = session['username'])}}>Profile</a></li>
 													<li><a href = {{ url_for("logout")}}>Logout</a></li>
 													

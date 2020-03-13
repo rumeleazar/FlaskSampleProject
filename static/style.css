@@ -359,6 +359,8 @@ header {
 }
 
 
+
+
 header .container {
 	overflow: visible;
 }
@@ -379,6 +381,59 @@ header .container {
 
 }
 
+.hamburgerContainer {
+	position: absolute;
+	left: 5px;
+	top: 0;
+	justify-content: center;
+	width: 10vw;
+	height: 9vh;
+	cursor: pointer;
+	padding: 0;
+	margin: auto;
+	z-index: 200;
+	display: none;
+
+
+
+}
+
+.hamburgerMenu 
+{
+	width: 40px;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(255, 101,47,0.2);
+	margin:auto;
+
+}
+
+.hamburgerMenu::before,
+.hamburgerMenu::after  {
+	content: '';
+	position: absolute;
+	background-color: #fff;
+	width: 40px;
+	height: 4px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(255, 101,47,0.2);
+
+}
+
+.hamburgerMenu::before {
+	transform: translateY(-13px);
+}
+
+.hamburgerMenu::after {
+	transform: translateY(13px);
+}
+
+
+.hamburgerToggler {
+	display: block;
+}
+
 
 
 nav ul {
@@ -390,6 +445,8 @@ nav ul {
 	width: 50%;
 	text-align: center;
 	height: 9vh;
+	
+
 
 }	
 
@@ -405,6 +462,8 @@ nav a h2 {
   	padding-top: 20px;
   	position: relative;
   	z-index: 2;
+  
+  
   	
 }
 
@@ -437,10 +496,11 @@ nav ul li{
 	list-style-type: none;
 	display: inline-block;
 	text-align: center;
-	margin: auto 10px;	
+	margin: auto 0;	
 	color: #FFFF;
 	width: 20%;
 	transform: translateY(90%);
+
 
 
 }
@@ -449,8 +509,10 @@ nav ul li{
 	font-weight: bold;
 	color: #FFFF;
 	text-shadow: 1px 1px 3px black; 
-	font-size: 20px;
+	font-size: 18px;
 	text-decoration: none;
+	width: 23%;
+
 
 }
 
@@ -459,8 +521,10 @@ nav ul a{
 	font-weight: bold;
 	color: #FFFF;
 	text-shadow: 1px 1px 3px black; 
-	font-size: 20px;
+	font-size: 18px;
 	text-decoration: none;
+	margin: 0;
+	padding: 0;
 }
 
 nav ul li ul {
@@ -1305,6 +1369,8 @@ nav ul li ul li {
 
 @media screen and (max-width: 1380px) {
 
+
+/*MEDIA QUERIES FOR HEADER NAV BAR*/
 nav ul a{
 	font-size: 16px;
 	
@@ -1312,12 +1378,22 @@ nav ul a{
 
 .userprofilename {
 	font-size: 16px;
-	padding-top: 30px;
+	width: 40%;
 }
 
-nav h2 {
+nav a h2 {
 	font-size:40px;
 }
+
+.searchbar input[type=text] {
+
+	width: 20%;
+	margin: 2% auto;
+
+}
+
+
+/*MEDIA QUERIES FOR BODY (INDEX.HTML)*/
 
 
 #introduction {
@@ -1327,6 +1403,11 @@ nav h2 {
 .introimage {
 	width: 60%;
 }
+
+
+
+
+/*MEDIA QUERIES FOR ARTICLE PAGE (ARTICLE.HTML)*/
 
 #pictureshowcase {
 	margin: auto;
@@ -1360,12 +1441,7 @@ nav h2 {
 	margin-bottom: 0;
 }
 
-.searchbar input[type=text] {
 
-	height: 30px;
-	width: 40%;
-	margin: 2% auto;
-}
 
 .ingredientsshowcase li{
 	text-align: center;
@@ -1378,11 +1454,14 @@ nav h2 {
 }
 
 
+
+
+
 }
 
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 790px) {
 
 /*HEADER QUERIES*/
 
@@ -1391,28 +1470,38 @@ footer p {
 }
 
 
-nav h2{
-	padding: 12px;
+.hamburgerContainer {
+	display: flex;
+
+
 }
+
 
 
 nav ul{
 	background: rgba(0,0,0,0.3);
-	display: flex;
-	flex-direction: column-reverse;
-	margin: auto;
-	height: 130px;
+	flex-direction: column;
+	margin: 0 auto;
+	height: 100vh;
 	padding: 0;
-	width: 100%;
+	width: 100%;	
+	display: none;
+	transition: 1.5s all ease-in-out;
+
 
 	
 }
 
+
 nav ul li {
-	margin-right: 0;
 	padding: 0;
 	margin: 0 auto;
-	height: 38px;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	height: 15%;
+	margin-right: 0;
+
 
 }
 
@@ -1420,43 +1509,36 @@ header .container {
 	width: 100%;
 }
 
-nav li {
-	width: 100%;
-	text-align: center;
-	position: relative;
-	height: 4%;
-	margin-right: 0;
 
-
-
-	
-}
 
 nav h2 {
+	position:absolute;
+	left: 30%;
+	display: flex;
 	float: none;
-	width: 100%;
+	width: 40%;
 	text-align: center;
+	justify-content: center;
 	font-size:40px;
 	margin: auto;
-
-
 }
 
 nav ul a {
-	font-size: 15px;
+	font-size: 30px;
 	margin: 0 auto;
+	padding: 0;
 
 
 }
 nav ul li ul {
-	height: 80px;
-	line-height: 40px;
+	height: 160px;
+
 	
 }
 
 nav ul li ul li {
 	width: 100%;
-	height: 50%;
+	height: 40%;
 	padding-top: 0;
 
 	
@@ -1464,14 +1546,17 @@ nav ul li ul li {
 
 .loginnav {
 
-
 	background: rgba(0,0,0,0.8);
 
 }
 .userprofilename {
-	font-size: 16px;
-	padding-top: 6px;
+	font-size: 30px;
+	padding-top: 0;
+	width: 100%;
+}
 
+.searchbar input[type=text] {
+	display: none;
 }
 
 
@@ -1512,6 +1597,7 @@ nav ul li ul li {
 	width: 43%;
 	margin: 2% auto;
 }
+
 
 
 

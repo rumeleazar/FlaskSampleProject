@@ -43,15 +43,11 @@ window.onclick = function(event) {
 
 
 
+//SEARCH BAR CLICK FUNCTION
+$(".searchbar input[type=text]").on('click', function() {
+	$(".searchbar input[type=text] ").css("opacity", "1");
+})
 
-console.log(window.location.pathname);
-
-
-
-if (window.location.pathname == '/' || window.location.pathname =='/ryanulysses' ) {
-
-
-}
 
 
 
@@ -75,6 +71,11 @@ window.addEventListener('scroll', function(){
 		$('.loginnav').css('position', 'fixed')
 		$('.loginnav').css('border-bottom', 'none');
 
+		$(".searchbar input[type=text]").on('mouseout', function() {
+			$(".searchbar input[type=text] ").css("opacity", "0.2");
+		})
+
+
 
 	} else {
 
@@ -90,7 +91,7 @@ window.addEventListener('scroll', function(){
 
 
 	
-	}	else {
+	} else {
 
 		if (window.scrollY == 0) {
 
@@ -103,7 +104,7 @@ window.addEventListener('scroll', function(){
 		$('.loginnav').css('border-bottom', 'none');
 
 
-	} else {
+		} else {
 
 		navBar.classList.add("loginnav-fixed");
 		$('.userprofilename').css('color','#ead1ae');
@@ -113,17 +114,22 @@ window.addEventListener('scroll', function(){
 		$('.loginnav').css('border-bottom', '1px solid #ead1ae');
 
 
+		}
 	}
-	}
-
-
-
-
-	
-
 
 
 })
+
+
+
+
+
+//HAMBURGER MENU ANIMATION
+$('.hamburgerContainer').on('click', function() {
+	$('nav ul').toggleClass('hamburgerToggler');
+	
+})
+
 
 
 
