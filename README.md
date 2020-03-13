@@ -1,5 +1,5 @@
 # RecipeShareProject #
-A simple recipe sharing CRUD website using Flask where you can create an account, log in, create a recipe and share it. Visit the project at: https://recipeshare.glitch.me/
+A simple recipe sharing CRUD website using Flask where you can create an account, log in, create a recipe and share it. Visit the project at: http://recipeshare.glitch.me/
 
 Note: The project is hosted at glitch.com. glitch.com has a function that makes the project/website sleep when nobody is visiting it, so it resets everything and deletes the data in the database(accounts, recipes, comments, etc.) when it sleeps.
   
