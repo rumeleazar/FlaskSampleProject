@@ -940,7 +940,7 @@ nav ul li ul li {
 
 }
 
-#dishnameshowcase {
+.dishnameshowcase {
 	position: relative;
 	padding: 0;
 	width: 100%;
@@ -953,7 +953,7 @@ nav ul li ul li {
 	
 }
 
-#dishnameshowcase h2 {
+.dishnameshowcase h2 {
 	padding: 0;
 	margin: 0;
 	font-weight: bold;
@@ -965,7 +965,7 @@ nav ul li ul li {
 }
 
 
-#dishnameshowcase h4 {
+.dishnameshowcase h4 {
 	margin: 0;
 	margin-top: 3px;
 	padding-top: 0;
@@ -976,7 +976,7 @@ nav ul li ul li {
 }
 
 
-#dishnameshowcase h5 {
+.dishnameshowcase h5 {
 	margin: 0;
 	margin-top: 3px;
 	padding-top: 0;
@@ -1020,7 +1020,8 @@ nav ul li ul li {
 	text-align: center;
 	margin: auto;
 	font-size: 50px;
-	text-indent: 45px;
+	
+
 }
 
 
@@ -1645,7 +1646,7 @@ nav ul li ul li {
 }
 
 .dishnameshowcase h2{
-	font-size: 40px;
+	font-size: 33px;
 }
 
 .dishnameshowcase h4{
@@ -1653,26 +1654,62 @@ nav ul li ul li {
 }
 
 
+.ingredientsshowcase {
+	width: 95%;
+	margin: auto;
+	text-align: center;
+
+}
+
 .ingredientsshowcase h1 {
-	font-size: 35px;
+	font-size: 26px;
+	text-align: center;
+	text-indent: 0;
+	margin: auto;
+
+
 
 }
 
 .ingredientsshowcase li{
 	font-size: 16px;
+	padding: 0 0 0 37px;
+	background-size: 23px;
+	width: auto;
+	text-align: justify;
+	transform: translateX(-22px);
+
+
+
+}
+
+.directionsshowcase {
+	width: 95%;
+	margin: auto;
+	text-align: center;
+
+
 }
 
 .directionsshowcase h1 {
-	font-size: 35px;
-
+	font-size: 26px;
+	text-align: center;
+	text-indent: 0;
+	margin: auto;
 }
 
 .directionsshowcase li{
 	font-size: 16px;
+	padding: 0 0 0 37px;
+	background-size: 23px;
+	width: auto;
+	text-align: justify;
+	transform: translateX(-22px);
+
 }
 
 .commentheader h1 {
-	font-size: 35px;
+	font-size: 28px;
 }
 
 #commentbox textarea {
@@ -1688,6 +1725,10 @@ nav ul li ul li {
 .comments p {
 	font-size: 16px;
 	display: inline-block;
+}
+
+.comments h3{
+	font-size: 19px;
 }
 
 
