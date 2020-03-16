@@ -48,6 +48,20 @@ footer p {
 
 }
 
+@font-face {
+	src: url("../static/fonts/NanumMyeongjo-Regular.ttf");
+	font-family: Nanum;
+}
+
+@font-face {
+	src: url("../static/fonts/GreatVibes.ttf");
+	font-family: GreatVibes;
+}
+@font-face {
+	src: url("../static/fonts/Poiret.ttf");
+	font-family: Poiret;
+}
+
 
 
 #fullbodycontainer {
@@ -454,7 +468,7 @@ nav ul {
 
 nav a h2 {
 	float:left;
-	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+	font: 400 130px/0.8 'GreatVibes';
   	color: #FFFF;
   	text-shadow: 1px 1px 3px black; 
   	font-size: 47px;
@@ -812,21 +826,26 @@ nav ul li ul li {
 	border: none;
 	text-shadow: 2px 2px black;
 	width: 100%;
-	margin-top: 0;
 	position:relative;
 	margin:auto;
 	
 }
 
 
- #showcase h3{
- 	font-size: 60px;
- 	margin-bottom: 10px;
+ #showcase h1{
+ 	font-size: 80px;
  	position: relative;
-	margin-top: 120px;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
-  	text-shadow: 8px 5px 3px black; 
-  	color:	#ffe6b3;
+	font-family: Nanum;
+  	text-shadow: 3px 3px 2px black; 
+  	color:	#F8F8F8;
+  	text-align: justify-all;
+  	margin:auto;
+  	height: 25%;
+  	width: 50%;
+  	transform: translateY(130%);
+  	text-transform: uppercase;
+  	transition: 1.2s all ease-in-out; 
+  	opacity: 0;
 }
  	
 
@@ -1232,7 +1251,7 @@ nav ul li ul li {
 }
 
 .headername h2 {
-	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+	font: 400 130px/0.8 'Poiret';
   	text-shadow: 3px 1px 3px black; 
   	font-size: 90px;
   	margin: 20px 20px;
@@ -1396,6 +1415,10 @@ nav a h2 {
 
 /*MEDIA QUERIES FOR BODY (INDEX.HTML)*/
 
+#showcase h1 {
+	font-size:65px;
+
+}
 
 #introduction {
 	display: block;
@@ -1569,13 +1592,14 @@ nav ul li ul li {
 #showcase{
 	min-height: 380px;
 
+}
+
+#showcase h1 {
+	font-size:50px;
 
 }
 
-#showcase .container h3 {
-	font-size: 40px;
-	margin-bottom: 0;
-}
+
 
 /*SHOWCASE QUERIES*/
 

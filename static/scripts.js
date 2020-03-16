@@ -52,12 +52,16 @@ $(".searchbar input[type=text]").on('click', function() {
 
 
 
+
+
+
 // NAVIGATION BAR ANIMATION
 
 //NOTE: CHANGE THIS OPTION IF YOU KNOW HOW TO PASS JINJA DATA TO JAVASCRIPT
 
 window.addEventListener('scroll', function(){
 	var navBar = document.querySelector('.loginnav');
+
 	
 	if (window.location.pathname == '/' || window.location.pathname =='/ryanulysses' ) {
 
@@ -132,6 +136,17 @@ $('.hamburgerContainer').on('click', function() {
 
 
 
+//SHOWCASE FONT ANIMATION (INDEX.HTML)
+window.addEventListener('scroll', function() {
+	if (window.scrollY > 190) {
+		$('#showcase h1').css('opacity', '0')
+	} else {
+		$('#showcase h1').css('opacity', '1')
+	}
+})
+
+
+
 
 
 // ANIMATION ON ARTICLE PAGE ON LOAD
@@ -140,6 +155,7 @@ $('.hamburgerContainer').on('click', function() {
 $( document ).ready(function() {
     $('.dishnamesummarygroup').css('opacity', '1');
     $('.dishnamesummarygroup').css('transform', 'translateY(0px)');
+    $('#showcase h1').css('opacity', '1');
 });
 
 
