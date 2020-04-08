@@ -307,6 +307,13 @@ def delete(id):
 
     with sqlite3.connect('database.db') as conn:
 
+        # CODE FOR DELETING IMAGE FILES IN STATIC FOLDER
+
+        cur = conn.cursor()
+        cur.execute("SELECT imagename FROM recipe WHERE id = ?", [id])
+        imagename =  cur.fetchone()
+        os.remove(os.path.join(app.config['STATIC_FOLDER'], imagename[0]))
+
         if request.method == 'GET':
             cur = conn.cursor()
             cur.execute("DELETE FROM recipe WHERE id = ?", [id])
@@ -316,6 +323,9 @@ def delete(id):
             return redirect(url_for('home', id=id, username=username))
 
         return redirect(url_for('home', username=username))
+
+
+   
 
 
 # ADD TO READING LIST FUNCTION
