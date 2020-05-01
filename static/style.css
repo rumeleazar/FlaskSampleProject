@@ -25,6 +25,7 @@ body	{
 	padding: 0;
 	overflow: auto;
 	font-size:100%;
+	font-family: Lato;
 }
 
 footer 	{
@@ -60,6 +61,10 @@ footer p {
 @font-face {
 	src: url("../static/fonts/Poiret.ttf");
 	font-family: Poiret;
+}
+@font-face {
+	src: url("../static/fonts/Lato-Regular.ttf");
+	font-family: Lato;
 }
 
 
@@ -197,7 +202,7 @@ img {
 }
 
 .introdescription h1 {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
+	font-family: Lato;
 	font-size:35px;
 	height: auto;
 	padding: 0;
@@ -205,18 +210,18 @@ img {
 }
 
 .introdescription p {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; 
+	font-family: Lato;
 	font-size:30px;
 	height: auto;
 	padding: 0;
 }
 
 .introdescription h5 { 
-	font: 40px/0.8 'Great Vibes', Helvetica, sans-serif;
+	font-family: GreatVibes;
 	font-size:40px;
 	height: auto;
 	padding: 0;
-  	padding-left: 60%;
+ 
 }
 
 .introimage {
@@ -253,7 +258,7 @@ img {
 }
 
 .row h1 {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	font-family: Lato;
 	font-size: 60px;
 
 }
@@ -630,13 +635,14 @@ nav ul li ul li {
 	height: 100%;
 	padding-top: 50px;
 	color: white;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
 
 }
 
 
 .registerform input::placeholder {
  	color:white;
+ 	
 
 }
 
@@ -682,18 +688,18 @@ nav ul li ul li {
 	outline: none;
 	font-size: 15px;
 	color: white;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
 }
 
 .logincontainer label {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
 	float;left: 
 	margin:0;
 	padding: 0;
 }
 
 .logincontainer p {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	
 	margin:auto;
 	position: relative;
 	font-size: 15px;
@@ -721,8 +727,7 @@ nav ul li ul li {
 	position: relative;
 	margin:auto;
 	height: 100%;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-
+	
 }
 
 .addrecipeblock {
@@ -791,7 +796,7 @@ nav ul li ul li {
 	border: none;
 	outline: none;
 	background-color:#FF7F50;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	
 
 
 }
@@ -805,7 +810,7 @@ nav ul li ul li {
 	border: none;
 	outline: none;
 	background-color: grey;
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	
 
 }
 
@@ -895,8 +900,6 @@ nav ul li ul li {
 	transform: translateX(-22px);
 	transition: 1.6s all ease-in-out;
 
-
-	
 	
 }
 .links li {

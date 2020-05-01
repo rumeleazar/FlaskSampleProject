@@ -274,7 +274,7 @@ window.addEventListener('scroll', scrollAnimation2);
 			var author = document.querySelector('.author');
 
 			quote.innerHTML = quotes.quote;
-			author.innerHTML = '-' + quotes.author;
+			author.innerHTML = quotes.author;
 
 			//jQuery for Fade in and Fade out of random quotes
 			setTimeout(function() {
