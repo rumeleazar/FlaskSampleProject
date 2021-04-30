@@ -11,7 +11,7 @@ MarkupSafe==1.1.1
 pycodestyle==2.5.0
 pytz==2019.3
 requests==2.22.0
-urllib3==1.25.7
+urllib3==1.25.8
 virtualenv==16.7.9
 Werkzeug==0.16.0
 zope.interface==4.7.1
